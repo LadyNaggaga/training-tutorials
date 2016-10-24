@@ -9,3 +9,14 @@ The basic format of queries is:
 ```c#
 variableToStoreQuery = context.Model.QueryKeyWord(m => m.Identifier == value)
 ```
+
+## Loading All Data
+
+Grabs the entirety of a table.
+
+```c#
+using (var context = new ThingContext())
+{
+    var things = context.Thing.ToList();
+}
+```
