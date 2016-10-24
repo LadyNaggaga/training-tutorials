@@ -7,7 +7,7 @@ Querying with EF Core uses LINQ statements (if you need some more pointers, chec
 The basic format of queries is:
 
 ```c#
-variableToStoreQuery = context.Model.QueryKeyWord(m => m.Identifier == value)
+variableToStoreQueryResult = context.Model.QueryKeyWord(m => m.Identifier == value)
 ```
 
 ## Loading All Data
@@ -15,9 +15,9 @@ variableToStoreQuery = context.Model.QueryKeyWord(m => m.Identifier == value)
 Grabs the entirety of a table.
 
 ```c#
-using (var context = new ThingContext())
+using (var context = new BlogsContext())
 {
-    var things = context.Thing.ToList();
+    var blogs = context.Blog.ToList();
 }
 ```
 
@@ -26,10 +26,10 @@ using (var context = new ThingContext())
 Just grab the one you want.
 
 ```c#
-using (var context = new ThingContext())
+using (var context = new BlogsContext())
 {
-    var thing = context.Thing
-        .Single(t => t.ThingId == 1);
+    var blog = context.Blog
+        .Single(b => b.BlogId == 1); //grabs the Blog with a BlogId of 1
 }
 ```
 
@@ -38,10 +38,10 @@ using (var context = new ThingContext())
 Make the program find the one you want based on parameters.
 
 ```c#
-using (var context = new ThingContext())
+using (var context = new BlogsContext())
 {
-    var things = context.Thing
-        .Where(t => t.Field.Contains("specificInfo"))
+    var blogs = context.Blog
+        .Where(b => b.Name.Contains("entity framework"))
         .ToList();
 }
 ```
