@@ -32,3 +32,16 @@ using (var context = new ThingContext())
         .Single(t => t.ThingId == 1);
 }
 ```
+
+## Filtering
+
+Make the program find the one you want based on parameters.
+
+```c#
+using (var context = new ThingContext())
+{
+    var things = context.Thing
+        .Where(t => t.Field.Contains("specificInfo"))
+        .ToList();
+}
+```
