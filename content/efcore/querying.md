@@ -20,3 +20,15 @@ using (var context = new ThingContext())
     var things = context.Thing.ToList();
 }
 ```
+
+## Loading a Single Entity
+
+Just grab the one you want.
+
+```c#
+using (var context = new ThingContext())
+{
+    var thing = context.Thing
+        .Single(t => t.ThingId == 1);
+}
+```
