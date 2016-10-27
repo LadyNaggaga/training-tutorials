@@ -1,2 +1,2 @@
-- [Introduction to Entity Framework Core](what-is-ef-core.md)
-- [Adding Entity Framework Core to a Project](adding-ef-core.md)
+- Introduction to Entity Framework Core
+- Adding Entity Framework Core to a Project
