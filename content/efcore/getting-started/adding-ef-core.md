@@ -18,9 +18,7 @@ To use EF Core in your project, you'll have to download the package for the data
 | Npgsql (PostgreSQL) | [Npgsql.EntityFrameworkCore.PostgreSQL](https://www.nuget.org/packages/Npgsql.EntityFrameworkCore.PostgreSQL) |
 | MySQL (Official) | [MySql.Data.EntityFrameworkCore -Pre](https://www.nuget.org/packages/MySql.Data.EntityFrameworkCore) |
 | Pomelo (MySQL) | [Pomelo.EntityFrameworkCore.MySQL](https://www.nuget.org/packages/Pomelo.EntityFrameworkCore.MySQL) |
-| Microsoft SQL Server Compact Edition | [EntityFrameworkCore.SqlServerCompact40](https://www.nuget.org/packages/EntityFrameworkCore.SqlServerCompact40) 
-OR 
-[EntityFrameworkCore.SqlServerCompact35](https://www.nuget.org/packages/EntityFrameworkCore.SqlServerCompact35) |
+| Microsoft SQL Server Compact Edition | [EntityFrameworkCore.SqlServerCompact40](https://www.nuget.org/packages/EntityFrameworkCore.SqlServerCompact40) OR [EntityFrameworkCore.SqlServerCompact35](https://www.nuget.org/packages/EntityFrameworkCore.SqlServerCompact35) |
 | IBM Data Servers | [EntityFramework.IBMDataServer -Pre](https://www.nuget.org/packages/EntityFramework.IBMDataServer) |
 | InMemory (for Testing) | [Microsoft.EntityFrameworkCore.InMemory](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.InMemory/) |
 | Devart (MySQL, Oracle, PostgreSQL, SQLite, DB2, SQL Server, and more) | N/A, for installation instructions, follow the [Devart dotConnect documentation](https://www.devart.com/dotconnect/). |
@@ -30,21 +28,27 @@ OR
 To create a new .NET Core project using command line: 
 
 1. Create a new directory for the project.  
-    mkdir MyProject 
+
+	mkdir MyProject 
 	
 2. Navigate to this project directory. 
-    cd MyProject 
+
+	cd MyProject 
 	
 3. Initialize a .NET Core project (this creates project.json and Startup.cs) 
-    dotnet new 
+
+	dotnet new 
 
 4. Restore dependencies. 
-    Dotnet restore 
+
+	dotnet restore 
 
 5. Run the project 
-    dotnet run
+
+	dotnet run
 
 You can verify that Entity Framework Core is installed by running
+
     dotnet ef -help
 	
 ##Using a Database
