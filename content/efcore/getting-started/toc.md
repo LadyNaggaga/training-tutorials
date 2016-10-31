@@ -1,1 +1,1 @@
-- [Querying the Database](querying.md)
+- [Querying Data](querying.md)

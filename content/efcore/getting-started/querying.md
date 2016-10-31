@@ -1,47 +1,48 @@
 # Querying Data
 
-Sometimes you really need an item (or items) from your database based off a certain set of parameters. In case you've forgotten, this is what querying is.
+In this lesson, you'll learn how to use querying to fetch an item (or items) from your database based off a certain set of parameters.
 
-Querying with EF Core uses LINQ statements (if you need some more pointers, check [this](https://www.microsoft.com/net/tutorials/csharp/getting-started/linq) out). For those who really like LINQ, [101 LINQ Samples](https://code.msdn.microsoft.com/101-LINQ-Samples-3fb9811b) is a great resource.
+EF Core uses LINQ to query data. If you need a refresher on LINQ, check out the [LINQ lesson] (https://www.microsoft.com/net/tutorials/csharp/getting-started/linq) in the C# Interactive Tutorial.
 
-The basic format of queries is:
+The basic format of a query is:
 
 ```c#
-variableToStoreQueryResult = context.Model.QueryKeyWord(m => m.Identifier == value)
+variableToStoreQueryResult = context.Model.QueryKeyword(m => m.Identifier == value)
 ```
 
 ## Loading All Data
 
-Grabs the entirety of a table.
+To get all of the information in a table, you use the need to create a disposable instance of the context. From that context, you reference the table you need, and the `ToList` function converts the table to a List of the objects. In the example below, our `MusicContext` has a table named `Songs` that we would like a List of.
 
 ```c#
-using (var context = new BlogsContext())
+using (var context = new MusicContext())
 {
-    var blogs = context.Blog.ToList();
+    var songs = context.Songs.ToList();
 }
 ```
 
 ## Loading a Single Entity
 
-Just grab the one you want.
+Fetching only one entity is very similar to loading all data. However, instead of converting the whole table to a List, we use the LINQ function `Single()` to get the Song with a SongId of 1.
 
 ```c#
-using (var context = new BlogsContext())
+using (var context = new MusicContext())
 {
-    var blog = context.Blog
-        .Single(b => b.BlogId == 1); //grabs the Blog with a BlogId of 1
+    //grabs the Song with a SongId of 1
+    var song = context.Songs
+        .Single(s => s.SongId == 1);
 }
 ```
 
 ## Filtering
 
-Make the program find the one you want based on parameters.
+When fetching data, filtering can be done to find the objects you want based on parameters. In our example, we use the LINQ function `Where()` to fetch any Songs that have the word "You" in their Name. To filter on different parameters, you can simply change the attribute used in the `Where()` function, or change the criteria that it matches on. As in the first example, we then use the `ToList()` function to convert all of the objects returned to a List.
 
 ```c#
-using (var context = new BlogsContext())
+using (var context = new MusicContext())
 {
-    var blogs = context.Blog
-        .Where(b => b.Name.Contains("entity framework"))
+    var songs = context.Songs
+        .Where(s => s.Name.Contains("You"))
         .ToList();
 }
 ```
