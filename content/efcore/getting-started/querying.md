@@ -12,7 +12,7 @@ variableToStoreQueryResult = context.Model.QueryKeyword(m => m.Identifier == val
 
 ## Loading All Data
 
-To get all of the information in a table, you use the need to create a disposable instance of the context. From that context, you reference the table you need, and the `ToList` function converts the table to a List of the objects. In the example below, our `MusicContext` has a table named `Songs` that we would like a List of.
+To get all of the information in a table, you first create a disposable instance of the context. You then reference the DbSet within the context that you need, and the `ToList` function converts the DbSet to a List of the objects. In the example below, our `MusicContext` has a table named `Songs` that we would like a List of.
 
 ```c#
 using (var context = new MusicContext())
