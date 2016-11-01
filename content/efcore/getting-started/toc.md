@@ -1,1 +1,2 @@
+- [Intro to EF Core](what-is-ef-core.md)
 - [Querying Data](querying.md)
