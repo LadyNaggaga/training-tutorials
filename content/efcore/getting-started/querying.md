@@ -1,48 +1,91 @@
-# Querying Data
-
-In this lesson, you'll learn how to use querying to fetch an item (or items) from your database based off a certain set of parameters.
-
-EF Core uses LINQ to query data. If you need a refresher on LINQ, check out the [LINQ lesson] (https://www.microsoft.com/net/tutorials/csharp/getting-started/linq) in the C# Interactive Tutorial.
-
-The basic format of a query is:
-
-```c#
-variableToStoreQueryResult = context.Model.QueryKeyword(m => m.Identifier == value)
-```
-
-## Loading All Data
-
-To get all of the information in a table, you first create a disposable instance of the context. You then reference the DbSet within the context that you need, and the `ToList` function converts the DbSet to a List of the objects. In the example below, our `MusicContext` has a table named `Songs` that we would like a List of.
-
-```c#
-using (var context = new MusicContext())
-{
-    var songs = context.Songs.ToList();
-}
-```
-
-## Loading a Single Entity
-
-Fetching only one entity is very similar to loading all data. However, instead of converting the whole table to a List, we use the LINQ function `Single()` to get the Song with a SongId of 1.
-
-```c#
-using (var context = new MusicContext())
-{
-    //grabs the Song with a SongId of 1
-    var song = context.Songs
-        .Single(s => s.SongId == 1);
-}
-```
-
-## Filtering
-
-When fetching data, filtering can be done to find the objects you want based on parameters. In our example, we use the LINQ function `Where()` to fetch any Songs that have the word "You" in their Name. To filter on different parameters, you can simply change the attribute used in the `Where()` function, or change the criteria that it matches on. As in the first example, we then use the `ToList()` function to convert all of the objects returned to a List.
-
-```c#
-using (var context = new MusicContext())
-{
-    var songs = context.Songs
-        .Where(s => s.Name.Contains("You"))
-        .ToList();
-}
-```
+# Querying Data 
+ 
+In this lesson, you'll learn how to use querying to fetch one or more items from your database. EF Core uses LINQ to query data, so it is important that you understand LINQ before going through this lesson. Check out the [LINQ lesson](../../csharp/getting-started/linq) in the C# Interactive Tutorial if you need a refresher. 
+ 
+## Example database 
+ 
+For this lesson, we will use a small database to allow you to try querying on your own. The database has two tables, Books and Authors, and the data is as follows: 
+ 
+### Books 
+| BookId | AuthorId | Title                           | Genre            | PublicationYear | 
+|--------|----------|---------------------------------|------------------|-----------------| 
+| 1      | 9        | Mrs. Dalloway                   | Literary         | 1925            | 
+| 2      | 6        | The Mysterious Island           | Science Fiction  | 1874            | 
+| 3      | 7        | The Blazing World               | Science Fiction  | 1666            | 
+| 4      | 1        | The Scarlet Plague              | Science Fiction  | 1912            | 
+| 5      | 8        | The Secret Adversary            | Mystery          | 1922            | 
+| 6      | 6        | An Antarctic Mystery            | Mystery          | 1897            | 
+| 7      | 5        | My Bondage and My Freedom       | Narrative        | 1855            | 
+| 8      | 3        | The Count of Monte Cristo       | Adventure        | 1845            | 
+| 9      | 10       | Minnie's Sacrifice              | Historical       | 1869            | 
+| 10     | 4        | My Antonia                      | Historical       | 1918            | 
+| 11     | 4        | O Pioneers!                     | Historical       | 1913            | 
+| 12     | 2        | Adventures of Huckleberry Finn  | Satire           | 1884            | 
+| 13     | 2        | The Adventures of Tom Sawyer    | Satire           | 1876            | 
+| 14     | 10       | Iola Leroy                      | Historical       | 1892            | 
+| 15     | 8        | Murder on the Orient Express    | Mystery          | 1934            | 
+| 16     | 1        | The Call of the Wild            | Adventure        | 1903            | 
+| 17     | 4        | Death Comes for the Archbishop  | Historical       | 1927            | 
+    
+### Authors 
+| AuthorId | FirstName  | LastName  | 
+|----------|------------|-----------| 
+| 1        | Jack       | London    | 
+| 2        | Mark       | Twain     | 
+| 3        | Alexandre  | Dumas     | 
+| 4        | Willa      | Cather    |  
+| 5        | Frederick  | Douglass  | 
+| 6        | Jules      | Vern      | 
+| 7        | Margaret   | Cavendish | 
+| 8        | Agatha     | Christie  | 
+| 9        | Virginia   | Woolf     | 
+| 10       | Frances    | Harper    | 
+| 11       | Stephen    | Crane     | 
+ 
+## Loading All Entities 
+ 
+Let's say we want to get all of the books from our database in a C# application. Normally, we would have to write a database query in a domain-specific language, such as SQL, and then we would have to manually map the results of this query to C# objects. With EF Core, this process is much easier because it takes care of the data access code for us. 
+ 
+```c# 
+using (var context = new LibraryContext()) 
+{ 
+    var books = context.Books.ToList(); 
+} 
+``` 
+ 
+In order to interact with the database via EF Core, we must first create an instance of our context (`LibraryContext`). Notice that we create the context with the `using` keyword. This automatically disposes the context after the using block has finished executing. Alternatively, we could manually call `LibraryContext.dispose()`, but the `using` method is more convenient and readable. It is imperative that we dispose of the context after we are finished using it because it holds an open connection to the database. 
+ 
+Once we have an instance of the context, we can use it to interact with the database. To access the books in the database, we reference the relevant `DbSet` within the context - `Books` in our case - and call the `ToList` method to convert the `DbSet` to a `List`. The resulting list will contain all of the books within the database. 
+ 
+ 
+## Filtering Entities 
+ 
+Loading all of the entities from a database is useful, but there are many use cases where we only want to load a subset of the entities from the database. For example, we may want to filter books by author or genre. EF Core allows us to filter entities via the `Where` extension method. Let's look at an example where we retrieve all science fiction books from the database. 
+ 
+```c# 
+using (var context = new LibraryContext()) 
+{ 
+    var books = context.Books 
+        .Where(b => b.Genre == "Science Fiction") 
+        .ToList(); 
+} 
+``` 
+ 
+We use a lambda expression within the `Where` method to detect if the `Genre` property of each book is equal to "Science Fiction". Books that meet the criteria of the lambda expression will be included in the final result, while books that do not will be excluded. 
+ 
+Some may note that we could retrieve all of the books like in the previous example and then filter them in our application. The problem with this is that it would require us to load all of the books into memory, and it also doesn't allow us to take advantage of our database's optimized querying functionality. Allowing the database to do what it does best and perform the filtering for us results in a significant performance increase. Thus, it is important that we filter the `DbSet` with the `Where` method before calling `ToList`. 
+ 
+ 
+## Loading a Single Entity 
+ 
+Both of our examples so far have shown how to retrieve a collection of entities. Let's look at how to retrieve a single entity based on a unique identifier. 
+ 
+```c# 
+using (var context = new LibraryContext()) 
+{ 
+    var book = context.Books 
+        .Single(b => b.Id == 1); 
+} 
+``` 
+ 
+In this example, we use the `Single` extension method to find the book with an `Id` of 1. Note that we do not need to call `ToList()` because `Single` returns a single entity. It is important to only use `Single` with unique identifiers because if multiple entities meet the success criteria a `System.InvalidOperationException` will be thrown. 
