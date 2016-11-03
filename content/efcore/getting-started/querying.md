@@ -1,6 +1,6 @@
 # Querying Data 
  
-In this lesson, you'll learn how to use querying to fetch one or more items from your database. EF Core uses LINQ to query data, so it is important that you understand LINQ before going through this lesson. Check out the [LINQ lesson](../../csharp/getting-started/linq) in the C# Interactive Tutorial if you need a refresher. 
+In this lesson, you'll learn how to use querying to fetch one or more items from your database. EF Core uses LINQ to query data, so it is important that you understand LINQ before going through this lesson. Check out the [LINQ lesson](../../csharp/getting-started/linq.md) in the C# Interactive Tutorial if you need a refresher. 
  
 ## Example database 
  
@@ -57,7 +57,6 @@ In order to interact with the database via EF Core, we must first create an inst
  
 Once we have an instance of the context, we can use it to interact with the database. To access the books in the database, we reference the relevant `DbSet` within the context - `Books` in our case - and call the `ToList` method to convert the `DbSet` to a `List`. The resulting list will contain all of the books within the database. 
  
- 
 ## Filtering Entities 
  
 Loading all of the entities from a database is useful, but there are many use cases where we only want to load a subset of the entities from the database. For example, we may want to filter books by author or genre. EF Core allows us to filter entities via the `Where` extension method. Let's look at an example where we retrieve all science fiction books from the database. 
@@ -74,7 +73,6 @@ using (var context = new LibraryContext())
 We use a lambda expression within the `Where` method to detect if the `Genre` property of each book is equal to "Science Fiction". Books that meet the criteria of the lambda expression will be included in the final result, while books that do not will be excluded. 
  
 Some may note that we could retrieve all of the books like in the previous example and then filter them in our application. The problem with this is that it would require us to load all of the books into memory, and it also doesn't allow us to take advantage of our database's optimized querying functionality. Allowing the database to do what it does best and perform the filtering for us results in a significant performance increase. Thus, it is important that we filter the `DbSet` with the `Where` method before calling `ToList`. 
- 
  
 ## Loading a Single Entity 
  
