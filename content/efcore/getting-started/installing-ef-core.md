@@ -1,13 +1,13 @@
 # Installing EF Core  
  
-In this lesson, you will learn how to install EF Core on your machine. You do not need to complete these steps to continue with the rest of the tutorial. 
+In this lesson, you will learn how to install EF Core on your machine. You do not need to complete these steps to continue with the rest of the tutorial as the code examples in the other lessons are executable in-browser.
  
 ## Install .NET Core 
  
 If you haven't already, you will first need to install .NET Core on your machine. Go to the [.NET Core Page](https://www.microsoft.com/net/core) of the Microsoft website, and follow the installation instructions for your platform of choice. You can ensure .NET Core is installed by running the following command: 
  
 ``` 
-dotnet –version 
+dotnet --version 
 ``` 
   
 ## Create New Project 
@@ -41,7 +41,6 @@ To add EF Core functionality to the [.NET Core Command-Line Interface](https://d
 "tools": { 
     "Microsoft.EntityFrameworkCore.Tools": "1.0.0-preview2-final" 
 } 
- 
 ``` 
  
 Once you have updated `package.json`, run the following command to install your project's tools and dependencies: 
