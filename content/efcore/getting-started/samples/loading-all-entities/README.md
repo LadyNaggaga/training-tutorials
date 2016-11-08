@@ -7,4 +7,3 @@ This code example demonstrates how to use EF Core to query all entities from the
 - [LibraryContext.cs](../shared/LibraryContext.cs)
 - [Books.cs](../shared/Books.cs)
 - [Author.cs](../shared/Author.cs)
-

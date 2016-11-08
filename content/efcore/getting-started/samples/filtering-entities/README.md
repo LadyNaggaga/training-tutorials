@@ -1,6 +1,6 @@
 # Filtering Entities
 
-This code example demonstrates how to use EF Core to query a subset of entities based off filters from the database.
+This code example demonstrates how to use EF Core to query a subset of entities from the database based on specified filters.
 
 ## Code Files:
 - [Program.cs](Program.cs)

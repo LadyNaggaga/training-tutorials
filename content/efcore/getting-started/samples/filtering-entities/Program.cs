@@ -14,7 +14,7 @@ public class Program
 
             foreach (Book book in books)
             {
-                Console.WriteLine(book.Genre);
+                Console.WriteLine(book.Title + ' ' + book.Genre);
             }
         }
     }

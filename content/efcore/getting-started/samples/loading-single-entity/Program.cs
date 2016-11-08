@@ -8,7 +8,6 @@ public class Program
     {
         using (var context = new LibraryContext())
         {
-            //grabs the Title with a BookId of 1
             var book = context.Books
                 .Single(s => s.BookId == 1);
             Console.WriteLine(book.Title);
