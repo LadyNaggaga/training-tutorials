@@ -72,7 +72,7 @@ using (var context = new LibraryContext())
  
 We use a lambda expression within the `Where` method to detect if the `Genre` property of each book is equal to "Science Fiction". Books that meet the criteria of the lambda expression will be included in the final result, while books that do not will be excluded. 
  
-Some may note that we could retrieve all of the books like in the previous example and then filter them in our application. The problem with this is that it would require us to load all of the books into memory, and it also doesn't allow us to take advantage of our database's optimized querying functionality. Allowing the database to do what it does best and perform the filtering for us results in a significant performance increase. Thus, it is important that we filter the `DbSet` with the `Where` method before calling `ToList`. 
+We could retrieve all of the books like in the previous example and then filter them in our application; however, this would require us to load all of the books into memory, and it does not allow us to take advantage of our database's optimized querying functionality. Allowing the database to do what it does best and perform the filtering for us results in a significant performance increase. Thus, it is important that we filter the `DbSet` with the `Where` method before calling `ToList`. 
  
 ## Loading a Single Entity 
  
