@@ -5,5 +5,5 @@ This code example demonstrates how to use EF Core to query a subset of entities 
 ## Code Files:
 - [Program.cs](Program.cs)
 - [LibraryContext.cs](../shared/LibraryContext.cs)
-- [Books.cs](../shared/Books.cs)
+- [Book.cs](../shared/Book.cs)
 - [Author.cs](../shared/Author.cs)

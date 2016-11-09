@@ -14,7 +14,7 @@ public class Program
 
             foreach (Book book in books)
             {
-                Console.WriteLine(book.Title + ' ' + book.Genre);
+                Console.WriteLine(String.Format("{0} - {1}", book.Title, book.Genre));
             }
         }
     }
