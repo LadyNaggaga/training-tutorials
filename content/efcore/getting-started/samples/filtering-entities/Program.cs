@@ -4,7 +4,7 @@ using System.Linq;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static void Main()
     {
         using (var context = new LibraryContext())
         {
