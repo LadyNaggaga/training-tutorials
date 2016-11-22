@@ -6,4 +6,4 @@ EF Core and the latest version of Entity Framework (EF6.x) differ in the feature
 
 ## Database Providers 
  
-At the moment, EF Core only supports relational databases, but there are plans to add support for non-relational databases in the future. Supported database providers are listed on the [Database Providers page](https://docs.efproject.net/en/latest/providers/index.html) in the docs.
+At the moment, EF Core only supports relational databases, but there are plans to add support for non-relational databases in the future. Supported database providers are listed on the [Database Providers page](https://docs.microsoft.com/en-us/ef/core/providers/) in the docs.
