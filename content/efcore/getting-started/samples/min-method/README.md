@@ -1,6 +1,6 @@
-# Count Method
+# Min Method
 
-This code example demonstrates how to use EF Core to query related data from the database using the .Count method.
+This code example demonstrates how to use EF Core to query related data from the database using the .Min method.
 
 ## Code Files:
 - [Program.cs](Program.cs)
