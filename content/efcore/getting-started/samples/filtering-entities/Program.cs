@@ -9,7 +9,7 @@ public class Program
         using (var context = new LibraryContext())
         {
             var books = context.Books
-                .Where(s => s.Genre.Contains("Science Fiction"))
+                .Where(book => book.Genre == "Science Fiction")
                 .ToList();
 
             foreach (Book book in books)
