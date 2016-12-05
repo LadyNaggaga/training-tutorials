@@ -5,5 +5,5 @@ public class Book
     public string Genre { get; set; }
     public int PublicationYear { get; set; }
     public Author Author { get; set; }
-    public Edition Edition { get; set; }
+    public List<Edition> Editions { get; set; }
 }
