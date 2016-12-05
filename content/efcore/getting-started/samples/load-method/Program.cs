@@ -9,15 +9,14 @@ public class Program
         using (var context = new AuthorContext())
         {
             var author = context.Authors
-                .Single(author => author.AuthorId == 2);
+                .Single(author => author.LastName == "Twain");
 
             context.Entry(author)
                 .Collection(author => author.Books)
+                .Query()
+                .Where(book => book.Title.Contains("Huck"))
                 .Load();
-
-            foreach (var book in author.Books) {
-                Console.WriteLine(book.Title);
-            }
+            Console.WriteLine(book.Title);
         }
     }
 }

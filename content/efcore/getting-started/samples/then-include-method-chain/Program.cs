@@ -8,12 +8,12 @@ public class Program
     {
         using (var context = new LibraryContext())
         {
-            var book = context.Books
-                .Single(s => s.BookId == 3)
+            var author = context.Authors
+                .Single(author => author.LastName == "Douglass")
                 .Include(author => author.Books)
-                .ThenInclude(book => book.Edition)
-                .ThenInclude(edition => edition.Publisher);
-            Console.WriteLine(String.Format("{0} : {1} - {2}", book.Title, book.Edition, edition.Publisher));
+                    .ThenInclude(book => book.Editions)
+                        .ThenInclude(edition => edition.Publisher);
+            Console.WriteLine(String.Format("{0} : {1} - {2}", book.Title, book.Editions, edition.Publisher));
         }
     }
 }

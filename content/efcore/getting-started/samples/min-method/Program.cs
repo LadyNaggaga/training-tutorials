@@ -8,10 +8,7 @@ public class Program
     {
         using (var context = new BookContext())
         {
-            var book = context.Books
-                    .Where(book => book.Genre = "Historical");
-
-            context.Entry(book)
+            var year = context.Entry(book)
                 .Collection(book => book.Editions)
                 .Query()
                 .Min(edition => edition.Year);

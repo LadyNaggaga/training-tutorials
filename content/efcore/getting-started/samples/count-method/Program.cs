@@ -9,13 +9,12 @@ public class Program
         using (var context = new AuthorContext())
         {
             var author = context.Authors
-                .Single(author => author.AuthorId == 4);
+                .Single(author => author.LastName == "Cather");
 
-            context.Entry(author)
+            var numBooks = context.Entry(author)
                 .Collection(author => author.Books)
                 .Query()
                 .Count();
-
             Console.WriteLine("Count: {0}", author.Books.Count);
         }
     }
