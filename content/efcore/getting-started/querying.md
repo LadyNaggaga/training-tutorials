@@ -65,7 +65,7 @@ Loading all of the entities from a database is useful, but there are many use ca
 using (var context = new LibraryContext()) 
 { 
     var books = context.Books 
-        .Where(b => b.Genre == "Historical")
+        .Where(book => book.Genre == "Historical")
         .ToList(); 
 } 
 ``` 
