@@ -6,7 +6,7 @@ public class Program
 {
     public static void Main()
     {
-        using (var context = new AuthorContext())
+        using (var context = new LibraryContext())
         {
             var author = context.Authors
                 .Single(a => a.LastName == "Cather");

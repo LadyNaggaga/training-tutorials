@@ -6,7 +6,7 @@ public class Program
 {
     public static void Main()
     {
-        using (var context = new BookContext())
+        using (var context = new LibraryContext())
         {
             var year = context.Entry(book)
                 .Collection(b => b.Editions)
