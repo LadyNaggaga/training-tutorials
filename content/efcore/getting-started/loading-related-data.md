@@ -11,7 +11,7 @@ When loading an entity from the database, EF Core will automatically include pro
 using (var context = new LibraryContext()) 
 { 
 	var book = context.Books 
-		.Single(book => book.BookId == 1); 
+		.Single(b => b.BookId == 1); 
 } 
 ``` 
  
@@ -21,8 +21,8 @@ We need to explicitly tell EF Core if we want to load a non-primitive type like 
 using (var context = new LibraryContext()) 
 { 
 	var book = context.Books 
-		.Single(book => book.BookId == 1) 
-		.Include(book => books.Author); 
+		.Single(b => b.BookId == 1) 
+		.Include(b => b.Author); 
 } 
 ``` 
  
@@ -32,9 +32,9 @@ You can also include multiple non-primitive type properties at once by calling t
 using (var context = new LibraryContext()) 
 { 
 	var book = context.Books 
-		.Single(book => book.Id == 1) 
-		.Include(book => book.Editions) 
-		.Include(book => book.Author); 
+		.Single(b => b.Id == 1) 
+		.Include(b => b.Editions) 
+		.Include(b => b.Author); 
 } 
 ``` 
  
@@ -46,9 +46,9 @@ Now, what happens if one of the properties we include also has non-primitive typ
 using (var context = new LibraryContext()) 
 { 
 	var book = context.Book 
-		.Single(book => book.BookId == 1) 
-		.Include(book=> book.Editions) 
-			.ThenInclude(edition=> edition.Publisher); 
+		.Single(b => b.BookId == 1) 
+		.Include(b => b.Editions) 
+			.ThenInclude(e => e.Publisher); 
 } 
 ``` 
  
@@ -58,10 +58,10 @@ We can also chain `ThenInclude` calls to include deeper layers of related data. 
 using (var context = new LibraryContext()) 
 { 
 	var author = context.Authors 
-		.Single(author => author.LastName == "Douglass") 
-		.Include(author => author.Books) 
-			.ThenInclude(book => book.Editions) 
-				.ThenInclude(edition => edition.Publisher); 
+		.Single(a => a.LastName == "Douglass") 
+		.Include(a => a.Books) 
+			.ThenInclude(b => b.Editions) 
+				.ThenInclude(e => e.Publisher); 
 } 
 ``` 
  
@@ -71,10 +71,10 @@ A mix of `Include` and `ThenInclude` commands can also be chained together to in
 using (var context = new LibraryContext()) 
 { 
 	var book = context.Books 
-		.Single(book => book.Title = "Call of the Wild") 
-		.Include(book => book.Editions) 
-			.ThenInclude(edition => edition.Publisher) 
-		.Include(book => book.Author); 
+		.Single(b => b.Title = "Call of the Wild") 
+		.Include(b => b.Editions) 
+			.ThenInclude(e => e.Publisher) 
+		.Include(b => b.Author); 
 } 
 ``` 
  
@@ -90,10 +90,10 @@ In the following example, we first eagerly load the author, Mark Twain. Then, we
 using (var context = new LibraryContext()) 
 { 
     var author = context.Authors 
-        .Single(author => author.LastName == "Twain"); 
+        .Single(a => a.LastName == "Twain"); 
  
     context.Entry(author) 
-        .Collection(author => author.Books) 
+        .Collection(a => a.Books) 
         .Load(); 
 } 
 ``` 
@@ -104,12 +104,12 @@ In the above example, we returned all of Twain's books, but what if we only want
 using (var context = new LibraryContext()) 
 { 
     var author = context.Authors 
-        .Single(author => author.LastName == "Twain"); 
+        .Single(a => a.LastName == "Twain"); 
  
     context.Entry(author) 
-        .Collection(author => author.Books) 
+        .Collection(a => a.Books) 
         .Query() 
-        .Where(book => book.Title.Contains("Huck")) 
+        .Where(b => b.Title.Contains("Huck")) 
         .Load(); 
 } 
 ``` 
@@ -124,10 +124,10 @@ When using explicit loading, we can also use aggregate functions, such as count,
 using (var context = new LibraryContext()) 
 { 
     var author = context.Authors 
-        .Single(author => author.LastName == "Cather"); 
+        .Single(a => a.LastName == "Cather"); 
  
     var numBooks = context.Entry(author) 
-        .Collection(author => author.Books) 
+        .Collection(a => a.Books) 
         .Query() 
         .Count(); 
 } 
@@ -139,12 +139,12 @@ Likewise, we can find the year of the oldest edition of a book using the `Min` m
 using (var context = new LibraryContext()) 
 { 
     var book = context.Books 
-        .Single(book => book.Title == "The Scarlet Plague"); 
+        .Single(b => b.Title == "The Scarlet Plague"); 
  
     var year = context.Entry(book) 
-        .Collection(book => book.Editions) 
+        .Collection(b => b.Editions) 
         .Query() 
-        .Min(edition => edition.Year); 
+        .Min(e => e.Year); 
 } 
 ``` 
  

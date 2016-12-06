@@ -9,12 +9,12 @@ public class Program
         using (var context = new AuthorContext())
         {
             var author = context.Authors
-                .Single(author => author.LastName == "Twain");
+                .Single(a => a.LastName == "Twain");
 
             context.Entry(author)
-                .Collection(author => author.Books)
+                .Collection(a => a.Books)
                 .Query()
-                .Where(book => book.Title.Contains("Huck"))
+                .Where(b => b.Title.Contains("Huck"))
                 .Load();
             Console.WriteLine(book.Title);
         }

@@ -9,9 +9,9 @@ public class Program
         using (var context = new BookContext())
         {
             var year = context.Entry(book)
-                .Collection(book => book.Editions)
+                .Collection(b => b.Editions)
                 .Query()
-                .Min(edition => edition.Year);
+                .Min(e => e.Year);
             Console.WriteLine("Minimum Year: {0}", book.Editions.Min);
         }
     }

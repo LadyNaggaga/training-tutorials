@@ -9,10 +9,10 @@ public class Program
         using (var context = new AuthorContext())
         {
             var author = context.Authors
-                .Single(author => author.AuthorId == 2);
+                .Single(a => a.AuthorId == 2);
 
             context.Entry(author)
-                .Collection(author => author.Books)
+                .Collection(a => a.Books)
                 .Query()
                 .Where(b => b.Title.Contains("Huck"))
                 .Load();

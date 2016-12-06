@@ -9,8 +9,8 @@ public class Program
         using (var context = new LibraryContext())
         {
             var book = context.Books
-                .Single(book => book.BookId == 1)
-                .Include(books => books.Authors);
+                .Single(b => b.BookId == 1)
+                .Include(b => b.Authors);
             Console.WriteLine(String.Format("{0} - {1}", book.Title, book.Author));
         }
     }

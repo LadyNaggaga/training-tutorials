@@ -9,10 +9,10 @@ public class Program
         using (var context = new LibraryContext())
         {
             var book = context.Books
-                .Single(book => book.Title = "Call of the Wild")
-                .Include(book => book.Editions)
-                    .ThenInclude(edition => edition.Publisher)
-                .Include(book => book.Author);
+                .Single(b => b.Title = "Call of the Wild")
+                .Include(b => b.Editions)
+                    .ThenInclude(e => e.Publisher)
+                .Include(b => b.Author);
             Console.WriteLine(String.Format("{0} : {1} - {2}", book.Title, book.Editions, edition.Publisher));
         }
     }
