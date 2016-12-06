@@ -8,6 +8,6 @@ public class LibraryContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Filename=Library.db");
+        optionsBuilder.UseSqlite("Filename=./database/Library.db");
     }
 }
