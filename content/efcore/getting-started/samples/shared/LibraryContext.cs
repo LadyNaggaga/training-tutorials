@@ -9,6 +9,6 @@ public class LibraryContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite(ReplHelper<string>.DefaultConnectionString);
+        optionsBuilder.UseSqlite(DBHelper.GetReadonlyDbConnectionString());
     }
 }
