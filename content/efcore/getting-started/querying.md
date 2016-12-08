@@ -52,7 +52,7 @@ using (var context = new LibraryContext())
     var books = context.Books.ToList(); 
 } 
 ```
-<div class="repl multifile" data-name="loading-all-entities"></div> 
+:::repl{data-name=loading-all-entities}:::
  
 In order to interact with the database via EF Core, we must first create an instance of our context (`LibraryContext`). Notice that we create the context with the `using` keyword. This automatically disposes the context after the using block has finished executing. Alternatively, we could manually call `LibraryContext.dispose()`, but the `using` method is more convenient and readable. It is imperative that we dispose of the context after we are finished using it because it holds an open connection to the database. 
  
@@ -70,7 +70,7 @@ using (var context = new LibraryContext())
         .ToList(); 
 } 
 ```
-<div class="repl multifile" data-name="filtering-entities"></div>
+:::repl{data-name=filtering-entities}:::
  
 We use a lambda expression within the `Where` method to detect if the `Genre` property of each book is equal to "Historical". Books that meet the criteria of the lambda expression will be included in the final result, while books that do not will be excluded. 
  
@@ -87,6 +87,6 @@ using (var context = new LibraryContext())
         .Single(b => b.Id == 1); 
 } 
 ```
-<div class="repl multifile" data-name="loading-single-entity"></div>
+:::repl{data-name=loading-single-entity}:::
  
 In this example, we use the `Single` extension method to find the book with an `Id` of 1. Note that we do not need to call `ToList()` because `Single` returns a single entity. It is important to only use `Single` with unique identifiers because if multiple entities meet the success criteria a `System.InvalidOperationException` will be thrown. 
