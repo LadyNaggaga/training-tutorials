@@ -26,7 +26,8 @@ For this lesson, we will use a small database to allow you to try querying on yo
 | 15     | 8        | Murder on the Orient Express    | Mystery          | 1934            | 
 | 16     | 1        | The Call of the Wild            | Adventure        | 1903            | 
 | 17     | 4        | Death Comes for the Archbishop  | Historical       | 1927            | 
-    
+
+
 ### Authors 
 | AuthorId | FirstName  | LastName  | 
 |----------|------------|-----------| 
@@ -52,7 +53,8 @@ using (var context = new LibraryContext())
     var books = context.Books.ToList(); 
 } 
 ```
-:::repl{data-name=loading-all-entities}:::
+:::repl{data-name=loading-all-entities}
+:::
  
 In order to interact with the database via EF Core, we must first create an instance of our context (`LibraryContext`). Notice that we create the context with the `using` keyword. This automatically disposes the context after the using block has finished executing. Alternatively, we could manually call `LibraryContext.dispose()`, but the `using` method is more convenient and readable. It is imperative that we dispose of the context after we are finished using it because it holds an open connection to the database. 
  
@@ -70,7 +72,8 @@ using (var context = new LibraryContext())
         .ToList(); 
 } 
 ```
-:::repl{data-name=filtering-entities}:::
+:::repl{data-name=filtering-entities}
+:::
  
 We use a lambda expression within the `Where` method to detect if the `Genre` property of each book is equal to "Historical". Books that meet the criteria of the lambda expression will be included in the final result, while books that do not will be excluded. 
  
@@ -87,6 +90,7 @@ using (var context = new LibraryContext())
         .Single(b => b.Id == 1); 
 } 
 ```
-:::repl{data-name=loading-single-entity}:::
+:::repl{data-name=loading-single-entity}
+:::
  
 In this example, we use the `Single` extension method to find the book with an `Id` of 1. Note that we do not need to call `ToList()` because `Single` returns a single entity. It is important to only use `Single` with unique identifiers because if multiple entities meet the success criteria a `System.InvalidOperationException` will be thrown. 
