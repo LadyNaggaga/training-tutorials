@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 
 public class Program
 {
@@ -15,7 +14,8 @@ public class Program
                 .Collection(a => a.Books)
                 .Query()
                 .Count();
-            Console.WriteLine(numBooks);
+
+            Console.WriteLine("Count: {0}", numBooks);
         }
     }
 }

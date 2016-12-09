@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,11 +8,15 @@ public class Program
     {
         using (var context = new LibraryContext())
         {
+            var book = context.Books
+                .Include(e => e.Editions)
+                .Single(b => b.Title == "The Scarlet Plague");
+
             var year = context.Entry(book)
                 .Collection(b => b.Editions)
                 .Query()
                 .Min(e => e.Year);
-				
+
             Console.WriteLine("Minimum Year: " + year);
         }
     }

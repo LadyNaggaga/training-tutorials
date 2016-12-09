@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,10 +9,14 @@ public class Program
         using (var context = new LibraryContext())
         {
             var book = context.Books
-                .Single(b => b.BookId == 1)
                 .Include(b => b.Editions)
-                    .ThenInclude(e => e.Publisher);
-            Console.WriteLine(String.Format("{0} - {1}", book.Editions, edition.Publisher));
+                    .ThenInclude(e => e.Publisher)
+                    .Single(b => b.BookId == 1);
+
+            foreach (Edition edition in book.Editions)
+            {
+                Console.WriteLine("{0} - {1}", edition.Book.Title, edition.Publisher.Name);
+            }
         }
     }
 }

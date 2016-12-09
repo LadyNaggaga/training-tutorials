@@ -9,11 +9,17 @@ public class Program
         using (var context = new LibraryContext())
         {
             var book = context.Books
-                .Single(b => b.Title = "Call of the Wild")
                 .Include(b => b.Editions)
-                    .ThenInclude(e => e.Publisher)
-                .Include(b => b.Author);
-            Console.WriteLine(String.Format("{0} : {1} - {2}", book.Title, book.Editions, edition.Publisher));
+                .ThenInclude(e => e.Publisher)
+                .Include(b => b.Author)
+                .Single(b => b.Title == "The Scarlet Plague");
+
+            Console.WriteLine(String.Format("{0}", book.Title));
+            Console.WriteLine("Editions:");
+            foreach (Edition edition in book.Editions)
+            {
+                Console.WriteLine("{0} - {1}", edition.Year, edition.Publisher.Name);
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +16,7 @@ public class Program
                 .Query()
                 .Where(b => b.Title.Contains("Huck"))
                 .Load();
+
             foreach (var book in author.Books)
             {
                 Console.WriteLine(book.Title);
