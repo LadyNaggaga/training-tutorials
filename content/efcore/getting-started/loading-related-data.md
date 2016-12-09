@@ -118,6 +118,9 @@ By using explicit loading, we were able to load only the book we want (_Adventur
  
 ### Aggregate Functions 
  
+> Note {.note}
+> Aggregate functions are only available in EF Core versions 1.1.0 and newer.
+
 When using explicit loading, we can also use aggregate functions, such as count, max, min, and sum, which allow us to perform calculations on the data without loading it all into memory. The following example counts how many books in the library are by Willa Cather without having to load all of the books into memory: 
  
 ```{.snippet} 

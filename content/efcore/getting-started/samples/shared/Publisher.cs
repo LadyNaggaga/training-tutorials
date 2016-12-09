@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class Publisher
 {
     public int PublisherId { get; set; }

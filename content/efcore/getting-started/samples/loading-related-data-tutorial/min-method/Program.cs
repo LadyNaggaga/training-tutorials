@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 public class Program
 {
@@ -12,7 +13,8 @@ public class Program
                 .Collection(b => b.Editions)
                 .Query()
                 .Min(e => e.Year);
-            Console.WriteLine("Minimum Year: {0}", book.Editions.Min);
+				
+            Console.WriteLine("Minimum Year: " + year);
         }
     }
 }

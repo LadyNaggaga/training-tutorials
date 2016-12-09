@@ -1,6 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 public class Program
 {
@@ -15,7 +15,7 @@ public class Program
                 .Collection(a => a.Books)
                 .Query()
                 .Count();
-            Console.WriteLine("Count: {0}", author.Books.Count);
+            Console.WriteLine(numBooks);
         }
     }
 }

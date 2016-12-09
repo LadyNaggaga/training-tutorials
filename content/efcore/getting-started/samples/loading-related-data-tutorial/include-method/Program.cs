@@ -1,6 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 public class Program
 {
@@ -9,9 +9,10 @@ public class Program
         using (var context = new LibraryContext())
         {
             var book = context.Books
-                .Single(b => b.BookId == 1)
-                .Include(b => b.Authors);
-            Console.WriteLine(String.Format("{0} - {1}", book.Title, book.Author));
+				.Single(b => b.BookId == 1)
+				.Include(b => b.Author);
+                
+            Console.WriteLine(String.Format("{0} - {2}", book.Title, book.Author.FirstName, book.Author.LastName));
         }
     }
 }
