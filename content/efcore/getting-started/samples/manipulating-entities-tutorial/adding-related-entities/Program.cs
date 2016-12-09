@@ -12,12 +12,14 @@ public class Program
             {
                 FirstName = "Mary",
                 LastName = "Shelley",
-                Books = new List<Book>(new Book
-                {
-                    Title = "Frankenstein: or, The Modern Prometheus",
-                    Genre = "Science Fiction",
-                    PublicationYear = 1818
-                })
+                Books = new List<Book> {
+                    new Book
+                    {
+                        Title = "Frankenstein: or, The Modern Prometheus",
+                        Genre = "Science Fiction",
+                        PublicationYear = 1818
+                    }
+                }
             };
             db.Authors.Add(author);
             db.SaveChanges();
@@ -25,7 +27,7 @@ public class Program
             var book = context.Books
                 .Single(b => b.Title.Contains("Frankenstein"));
 
-            Console.WriteLine("{0} {1} {2}", book.Title, book.Genre, book.PublicationYear);
+            Console.WriteLine("{0} - {1}, {2}", book.Title, book.Genre, book.PublicationYear);
         }
     }
 }
