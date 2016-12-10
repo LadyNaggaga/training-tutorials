@@ -12,7 +12,7 @@ public class Program
                 .Include(a => a.Books)
                     .ThenInclude(b => b.Editions)
                         .ThenInclude(e => e.Publisher)
-                         .Single(a => a.LastName == "Douglass");
+                .Single(a => a.LastName == "Douglass");
 
             foreach (Book book in author.Books)
             {
