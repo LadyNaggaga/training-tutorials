@@ -10,7 +10,7 @@ public class Program
         {
             var book = context.Books
                 .Include(b => b.Editions)
-                .ThenInclude(e => e.Publisher)
+                    .ThenInclude(e => e.Publisher)
                 .Include(b => b.Author)
                 .Single(b => b.Title.Contains("Call of the Wild"));
 
