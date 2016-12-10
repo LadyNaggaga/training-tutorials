@@ -106,6 +106,8 @@ using (var context = new LibraryContext())
  
     context.Entry(author) 
         .Collection(a => a.Books) 
+		.Query()
+		.Where(b => b.Title.Contains("Huck"))
         .Load(); 
 } 
 ``` 
@@ -118,7 +120,7 @@ In the above example, we returned all of Twain's books, but what if we only want
 using (var context = new LibraryContext()) 
 { 
     var author = context.Authors 
-        .Single(a => a.LastName == "Twain"); 
+        .Single(a => a.AuthorId == 2); 
  
     context.Entry(author) 
         .Collection(a => a.Books) 
@@ -159,7 +161,8 @@ Likewise, we can find the year of the oldest edition of a book using the `Min` m
 ```{.snippet} 
 using (var context = new LibraryContext()) 
 { 
-    var book = context.Books 
+    var book = context.Books
+		.Include(e => e.Editions)
         .Single(b => b.Title == "The Scarlet Plague"); 
  
     var year = context.Entry(book) 
