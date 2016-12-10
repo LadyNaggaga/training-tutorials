@@ -20,9 +20,9 @@ We need to explicitly tell EF Core if we want to load a non-primitive type like 
 ```{.snippet} 
 using (var context = new LibraryContext()) 
 { 
-	var book = context.Books 
-		.Single(b => b.BookId == 1) 
-		.Include(b => b.Author); 
+	var book = context.Books  
+		.Include(b => b.Author)
+		.Single(b => b.BookId == 1); 
 } 
 ``` 
  
@@ -32,9 +32,9 @@ You can also include multiple non-primitive type properties at once by calling t
 using (var context = new LibraryContext()) 
 { 
 	var book = context.Books 
-		.Single(b => b.Id == 1) 
 		.Include(b => b.Editions) 
-		.Include(b => b.Author); 
+		.Include(b => b.Author)
+		.Single(b => b.Id == 1); 
 } 
 ``` 
  
@@ -46,9 +46,9 @@ Now, what happens if one of the properties we include also has non-primitive typ
 using (var context = new LibraryContext()) 
 { 
 	var book = context.Book 
-		.Single(b => b.BookId == 1) 
 		.Include(b => b.Editions) 
-			.ThenInclude(e => e.Publisher); 
+			.ThenInclude(e => e.Publisher)
+		.Single(b => b.BookId == 1) ; 
 } 
 ``` 
  
@@ -58,10 +58,10 @@ We can also chain `ThenInclude` calls to include deeper layers of related data. 
 using (var context = new LibraryContext()) 
 { 
 	var author = context.Authors 
-		.Single(a => a.LastName == "Douglass") 
 		.Include(a => a.Books) 
 			.ThenInclude(b => b.Editions) 
-				.ThenInclude(e => e.Publisher); 
+				.ThenInclude(e => e.Publisher)
+		.Single(a => a.LastName == "Douglass"); 
 } 
 ``` 
  
