@@ -14,6 +14,8 @@ using (var context = new LibraryContext())
 		.Single(b => b.BookId == 1); 
 } 
 ``` 
+:::repl{data-name=field-not-included} 
+:::
  
 We need to explicitly tell EF Core if we want to load a non-primitive type like the Author field. We do this using the `Include` method. In the example below, the book that is returned will include its author's information. 
  
@@ -25,6 +27,8 @@ using (var context = new LibraryContext())
 		.Single(b => b.BookId == 1); 
 } 
 ``` 
+:::repl{data-name=include-method} 
+:::
  
 You can also include multiple non-primitive type properties at once by calling the `Include` method multiple times. For example, we can include the `Editions` and `Authors` properties of the `Book` entity like so:  
  
@@ -37,6 +41,8 @@ using (var context = new LibraryContext())
 		.Single(b => b.Id == 1); 
 } 
 ``` 
+:::repl{data-name=multiple-include-methods} 
+:::
  
 ## Multi-layer Inclusion 
  
@@ -51,6 +57,8 @@ using (var context = new LibraryContext())
 		.Single(b => b.BookId == 1) ; 
 } 
 ``` 
+:::repl{data-name=then-include-method} 
+:::
  
 We can also chain `ThenInclude` calls to include deeper layers of related data. For example, if we want to find out the publisher information for the different editions of Fredrick Douglass' books in this library, we will need to chain `ThenInclude` calls to get the book, edition, and publisher information. 
  
@@ -64,6 +72,8 @@ using (var context = new LibraryContext())
 		.Single(a => a.LastName == "Douglass"); 
 } 
 ``` 
+:::repl{data-name=then-include-method-chain} 
+:::
  
 A mix of `Include` and `ThenInclude` commands can also be chained together to include related data from multiple layers across related entities. In the following example, we are looking for the author, editions, and edition publishers of _The Call of the Wild_. 
  
@@ -77,6 +87,8 @@ using (var context = new LibraryContext())
 		.Single(b => b.Title.Contains("Call of the Wild")); 
 } 
 ``` 
+:::repl{data-name=include-and-then-include-method-chain} 
+:::
  
 ## Explicit Loading 
  
@@ -97,6 +109,8 @@ using (var context = new LibraryContext())
         .Load(); 
 } 
 ``` 
+:::repl{data-name=load-method} 
+:::
  
 In the above example, we returned all of Twain's books, but what if we only wanted to load a specific book of Twain's, say _Adventures of Huckleberry Finn_? We would use the `Query` command to search for it. 
  
@@ -113,6 +127,8 @@ using (var context = new LibraryContext())
         .Load(); 
 } 
 ``` 
+:::repl{data-name=query-method} 
+:::
  
 By using explicit loading, we were able to load only the book we want (_Adventures of Huckleberry Finn_). If we had used eager loading, we would have loaded all of Twain's books. 
  
@@ -135,6 +151,8 @@ using (var context = new LibraryContext())
         .Count(); 
 } 
 ``` 
+:::repl{data-name=count-method} 
+:::
  
 Likewise, we can find the year of the oldest edition of a book using the `Min` method: 
  
@@ -150,4 +168,6 @@ using (var context = new LibraryContext())
         .Min(e => e.Year); 
 } 
 ``` 
+:::repl{data-name=min-method} 
+:::
  
