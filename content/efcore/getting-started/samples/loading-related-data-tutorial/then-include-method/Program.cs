@@ -11,7 +11,7 @@ public class Program
             var book = context.Books
                 .Include(b => b.Editions)
                     .ThenInclude(e => e.Publisher)
-                    .Single(b => b.BookId == 1);
+                .Single(b => b.BookId == 1);
 
             foreach (Edition edition in book.Editions)
             {
