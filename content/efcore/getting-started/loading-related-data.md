@@ -65,16 +65,16 @@ using (var context = new LibraryContext())
 } 
 ``` 
  
-A mix of `Include` and `ThenInclude` commands can also be chained together to include related data from multiple layers across related entities. In the following example, we are looking for the author, editions, and edition publishers of _Call of the Wild_. 
+A mix of `Include` and `ThenInclude` commands can also be chained together to include related data from multiple layers across related entities. In the following example, we are looking for the author, editions, and edition publishers of _The Call of the Wild_. 
  
 ```{.snippet} 
 using (var context = new LibraryContext()) 
 { 
 	var book = context.Books 
-		.Single(b => b.Title = "Call of the Wild") 
 		.Include(b => b.Editions) 
 			.ThenInclude(e => e.Publisher) 
-		.Include(b => b.Author); 
+		.Include(b => b.Author)		
+		.Single(b => b.Title.Contains("Call of the Wild")); 
 } 
 ``` 
  

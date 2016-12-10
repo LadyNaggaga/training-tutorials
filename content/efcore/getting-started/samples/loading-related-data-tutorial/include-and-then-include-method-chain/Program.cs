@@ -12,7 +12,7 @@ public class Program
                 .Include(b => b.Editions)
                 .ThenInclude(e => e.Publisher)
                 .Include(b => b.Author)
-                .Single(b => b.Title == "The Scarlet Plague");
+                .Single(b => b.Title.Contains("Call of the Wild"));
 
             Console.WriteLine(String.Format("{0}", book.Title));
             Console.WriteLine("Editions:");
