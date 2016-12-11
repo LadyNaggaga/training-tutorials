@@ -15,7 +15,7 @@ public class Program
 
             foreach (Edition edition in book.Editions)
             {
-                Console.WriteLine("{0} - {1} {2}", edition.Book.Title, book.Author.FirstName, book.Author.LastName);
+                Console.WriteLine("{0}: {1} {2}, {3}", edition.Book.Title, book.Author.FirstName, book.Author.LastName, edition.Year);
             }
         }
     }
