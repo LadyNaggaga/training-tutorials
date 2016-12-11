@@ -9,7 +9,7 @@ public class Program
         using (var context = new LibraryContext())
         {
             var author = context.Authors
-                .Single(a => a.AuthorId == 2);
+                .Single(a => a.LastName == "Twain");
 
             context.Entry(author)
                 .Collection(a => a.Books)

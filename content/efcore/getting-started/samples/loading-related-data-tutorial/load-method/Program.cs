@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 
 public class Program
 {
@@ -13,8 +12,6 @@ public class Program
 
             context.Entry(author)
                 .Collection(a => a.Books)
-                .Query()
-                .Where(b => b.Title.Contains("Huck"))
                 .Load();
 				
 			foreach (Book book in author.Books)
