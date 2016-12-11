@@ -9,14 +9,14 @@ Let's first look at how to create a new record in the database. In the following
 ```{.snippet} 
 using (var context = new LibraryContext()) 
 { 
-var author = new Author 
-{  
-FirstName = "Mary",  
-LastName = "Shelley", 
-Books = new List<Book>() 
-}; 
-context.Authors.Add(author); 
-context.SaveChanges(); 
+    var author = new Author 
+    {  
+        FirstName = "Mary",  
+        LastName = "Shelley", 
+        Books = new List<Book>() 
+    }; 
+    context.Authors.Add(author); 
+    context.SaveChanges(); 
 } 
 ``` 
 :::repl{data-name=adding-entities} 
@@ -33,22 +33,21 @@ In the previous example, we added an author without any books to the database. N
 ``` 
 using (var context = new LibraryContext()) 
 { 
-var author = new Author 
-{  
-FirstName = "Mary",  
-LastName = "Shelley", 
-Books = new List<Book> { 
-new Book 
-{ 
-Title = "Frankenstein: or, The Modern Prometheus", 
-Genre = "Science Fiction", 
-PublicationYear = 1818 
- 
-} 
-} 
-}; 
-context.Authors.Add(author); 
-context.SaveChanges(); 
+    var author = new Author 
+    {  
+        FirstName = "Mary",  
+        LastName = "Shelley", 
+        Books = new List<Book> { 
+            new Book 
+            { 
+                Title = "Frankenstein: or, The Modern Prometheus", 
+                Genre = "Science Fiction", 
+                PublicationYear = 1818 
+            } 
+        } 
+    }; 
+    context.Authors.Add(author); 
+    context.SaveChanges(); 
 } 
 ``` 
 :::repl{data-name=adding-related-entities} 
@@ -59,24 +58,22 @@ If we want to add a new entity that is related to an existing entity, we first l
 ``` 
 using (var context = new LibraryContext()) 
 { 
-var author = context.Author 
-.Single(a => a.LastName == "Crane") 
+    var author = context.Authors
+        .Include(a => a.Books) 
+        .Single(a => a.LastName == "Crane");
  
-var book = new Book 
-{ 
-Title = "The Red Badge of Courage", 
-Genre = "War Novel", 
-PublicationYear = 1871 
+    var book = new Book 
+    { 
+        Title = "The Red Badge of Courage", 
+        Genre = "War Novel", 
+        PublicationYear = 1871 
+    };
+ 
+    author.Books.Add(book); 
+    context.SaveChanges(); 
 } 
- 
-author.Books.Add(book); 
-context.SaveChanges(); 
-} 
- 
- 
- 
 ``` 
-:::repl{data-name=CODE_EXAMPLE_NAME} 
+:::repl{data-name=add-new-entity-to-existing} 
 ::: 
  
 ## Updating Entities in a Database 
@@ -86,9 +83,9 @@ Next, let's look at how to update records that are already in the database. In t
 ```{.snippet} 
 using (var context = new LibraryContext()) 
 { 
-var book = context.Books.First(); 
-book.Title = "Frankenstein: or, The Modern Prometheus"; 
-context.SaveChanges(); 
+    var book = context.Books.First(); 
+    book.Title = "Frankenstein: or, The Modern Prometheus"; 
+    context.SaveChanges(); 
 } 
 ``` 
 :::repl{data-name=updating-entities} 
@@ -99,20 +96,20 @@ Notice we did not have to tell EF Core that the entity had been changed to updat
 Suppose you want to update an untracked entity. As long as the untracked entity has the same primary key as the record in the database, you can accomplish this using the `DbSet`'s `Update` method. In the following example, we update the book with a primary key of `1`: 
  
 ```{.snippet} 
-Using (var context = new LibraryContext()) 
+using (var context = new LibraryContext()) 
 { 
-var book = new Book() 
-{ 
-BookId = 1, 
-Title = "Frankenstein: or, The Modern Prometheus", 
-Genre = "Science Fiction", 
-PublicationYear = 1818 
-} 
-context.Books.Update(book); 
-context.SaveChanges(); 
+    var book = new Book() 
+    { 
+        BookId = 1, 
+        Title = "Frankenstein: or, The Modern Prometheus", 
+        Genre = "Science Fiction", 
+        PublicationYear = 1818 
+    };
+    context.Books.Update(book); 
+    context.SaveChanges(); 
 } 
 ``` 
-:::repl{data-name=CODE_EXAMPLE_NAME} 
+:::repl{data-name=updating-untracked-entities} 
 ::: 
  
 ## Deleting Entities 
@@ -122,9 +119,9 @@ Finally, let's look at how to delete records from the database. This can be acco
 ```{.snippet}  
 using (var context = new LibraryContext()) 
 { 
-var book = context.Books.First(); 
-context.Books.Remove(book); 
-context.SaveChanges(); 
+    var book = context.Books.First(); 
+    context.Books.Remove(book); 
+    context.SaveChanges(); 
 } 
 ``` 
 :::repl{data-name=deleting-entities} 
