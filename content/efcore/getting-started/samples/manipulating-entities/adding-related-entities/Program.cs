@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 public class Program
 {
@@ -27,7 +28,17 @@ public class Program
             var book = context.Books
                 .Single(b => b.Title.Contains("Frankenstein"));
 
-            Console.WriteLine("{0} - {1}, {2}", book.Title, book.Genre, book.PublicationYear);
+        }
+        
+        using (var context = new LibraryContext())
+        {
+            var addedAuthor = context.Authors
+                .Include(a => a.Books)
+                .Single(a => a.LastName.Contains("Shelley"));
+
+            foreach (Book book in addedAuthor.Books) {
+                Console.WriteLine("{0} - {1}, {2}", book.Title, book.Genre, book.PublicationYear);
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 # Manipulating Entities 
  
-Four operations that we often perform on a record in a database are create, read, update, and delete (commonly referred to as "CRUD" operations). We walked through how to read records from a database in the [Querying Data](querying-data.md) tutorial. Now let's learn how to perform the other CRUD operations which allow us to manipulate records in the database. 
+Four operations that we often perform on a record in a database are create, read, update, and delete (commonly referred to as "CRUD" operations). We walked through how to read records from a database in the [Querying Data](querying.md) tutorial. Now let's learn how to perform the other CRUD operations which allow us to manipulate records in the database. 
  
 ## Adding Entities to a Database 
  
@@ -131,5 +131,5 @@ using (var context = new LibraryContext())
  
 In the previous example, we were able to successfully delete a book, but what happened to that book's editions and publishers? The short answer is it depends. The way that EF Core handles deletion of an entity with related data depends on several factors including whether the related data is tracked, how EF Core is configured, and how the database is configured. To learn more about the available behaviors and how to configure a certain behavior, check out the [Cascade Delete]() lesson.  
  
-> Note {.note} 
+> **Note** {.note} 
 > The Cascade Delete lesson has not been added yet. For now, please refer to the [Cascade Delete](https://docs.microsoft.com/en-us/ef/core/saving/cascade-delete) page in the docs.
