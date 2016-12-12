@@ -5,7 +5,7 @@
  
 ## Single Layer Inclusion 
  
-When loading an entity from the database, EF Core will automatically include properties that are primitive types, but non-primitive types (such as other entities) won't be included. For example, if you run the following code snippet, you will see that the Author field is null: 
+When loading an entity from the database, EF Core will automatically include properties that are primitive types, but non-primitive types (such as other entities) won't be included. For example, if you run the following code snippet, you will see that the `Author` field is `null`: 
  
 ```{.snippet} 
 using (var context = new LibraryContext()) 
