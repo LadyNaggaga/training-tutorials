@@ -6,11 +6,11 @@ public class Program
 {
     public static void Main()
     {
-        using (var db = new LibraryContext())
+        using (var context = new LibraryContext())
         {
-            var book = db.Books.Include(b => b.Editions).First();
-            db.Books.Remove(book);
-            db.SaveChanges();
+            var book = context.Books.Include(b => b.Editions).First();
+            context.Books.Remove(book);
+            context.SaveChanges();
 
             Console.WriteLine(book.Title);
         }

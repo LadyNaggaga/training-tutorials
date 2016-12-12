@@ -1,6 +1,6 @@
 # Updating Untracked Entities
 
-This code example demonstrates how to use EF Core to update untracked entities in a db.
+This code example demonstrates how to use EF Core to update untracked entities in a database.
 
 ## Code Files:
 - [Program.cs](Program.cs)

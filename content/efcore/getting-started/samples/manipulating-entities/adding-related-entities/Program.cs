@@ -6,7 +6,7 @@ public class Program
 {
     public static void Main()
     {
-        using (var db = new LibraryContext())
+        using (var context = new LibraryContext())
         {
             var author = new Author
             {
@@ -21,8 +21,8 @@ public class Program
                     }
                 }
             };
-            db.Authors.Add(author);
-            db.SaveChanges();
+            context.Authors.Add(author);
+            context.SaveChanges();
 
             var book = context.Books
                 .Single(b => b.Title.Contains("Frankenstein"));
