@@ -38,7 +38,7 @@ using (var context = new LibraryContext())
 	var book = context.Books 
 		.Include(b => b.Editions) 
 		.Include(b => b.Author)
-		.Single(b => b.Id == 1); 
+		.Single(b => b.BookId == 1); 
 } 
 ``` 
 :::repl{data-name=multiple-include-methods} 
