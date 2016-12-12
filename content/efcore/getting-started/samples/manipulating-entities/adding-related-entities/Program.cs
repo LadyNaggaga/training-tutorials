@@ -24,10 +24,6 @@ public class Program
             };
             context.Authors.Add(author);
             context.SaveChanges();
-
-            var book = context.Books
-                .Single(b => b.Title.Contains("Frankenstein"));
-
         }
         
         using (var context = new LibraryContext())
