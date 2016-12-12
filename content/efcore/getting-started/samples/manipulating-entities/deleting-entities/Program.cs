@@ -14,8 +14,9 @@ public class Program
             try
             {
                 var author = context.Authors
-                .Single(a => a.LastName == "Crane");
-            } catch
+                    .Single(a => a.LastName == "Crane");
+            }
+            catch
             {
                 Console.WriteLine("Author not found!");
             }
