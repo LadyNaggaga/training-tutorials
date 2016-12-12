@@ -19,5 +19,6 @@ public class Program
                 .Single(a => a.LastName.Contains("Shelley"));
 
             Console.WriteLine("{0}: {1} {2}", addedAuthor.AuthorId, addedAuthor.FirstName, addedAuthor.LastName);
+        }
     }
 }

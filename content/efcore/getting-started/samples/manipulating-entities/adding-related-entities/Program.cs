@@ -32,5 +32,6 @@ public class Program
             foreach (Book book in addedAuthor.Books) {
                 Console.WriteLine("{0} - {1}, {2}", book.Title, book.Genre, book.PublicationYear);
             }
+        }
     }
 }
