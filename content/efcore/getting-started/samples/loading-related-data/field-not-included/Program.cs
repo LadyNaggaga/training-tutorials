@@ -11,7 +11,7 @@ public class Program
             var book = context.Books
                 .Single(b => b.BookId == 1);
             
-            Console.WriteLine(JsonConvert.SerializeObject(book));
+            Console.WriteLine(JsonConvert.SerializeObject(book, Formatting.Indented));
         }
     }
 }
