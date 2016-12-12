@@ -6,7 +6,7 @@ Four operations that we often perform on a record in a database are create, read
  
 Let's first look at how to create a new record in the database. In the following example, we create a new author and add it to the database: 
   
-```{.snippet} 
+```{.snippet}
 using (var context = new LibraryContext()) 
 { 
     var author = new Author 
@@ -30,7 +30,7 @@ Notice that we do not specify the `AuthorId` property before adding the author t
  
 In the previous example, we added an author without any books to the database. Now we want to add an author and their books to the database. To add related entities like this to the database using EF Core we simply call the `Add` method on the parent entity. It will then automatically add the parent’s related entities to the database. In the following example, we add an author and their books to the database by simply adding the author: 
  
-``` 
+```{.snippet}
 using (var context = new LibraryContext()) 
 { 
     var author = new Author 
@@ -55,7 +55,7 @@ using (var context = new LibraryContext())
  
 If we want to add a new entity that is related to an existing entity, we first load the existing entity, then add the related entity to it. For example, to add a new book to an existing author we would load the author and then add the book to the author's list of books. Calling `SaveChanges` would then add the new book to the database. 
  
-``` 
+```{.snippet}
 using (var context = new LibraryContext()) 
 { 
     var author = context.Authors
