@@ -8,4 +8,4 @@ This code example demonstrates how to use EF Core to update entities to a databa
 - [Book.cs](../../shared/Book.cs)
 - [Author.cs](../../shared/Author.cs)
 - [Edition.cs](../../shared/Edition.cs)
-- [Publisher.cs](../../shared/Edition.cs)
+- [Publisher.cs](../../shared/Publisher.cs)
