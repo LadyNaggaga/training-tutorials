@@ -21,10 +21,7 @@ public class Program
 
             author.Books.Add(book);
             context.SaveChanges();
-        }
 
-        using (var context = new LibraryContext())
-        {
             var addedBook = context.Books
                 .Include(b => b.Author)
                 .Single(b => b.Title.Contains("Badge"));
