@@ -7,6 +7,7 @@ In this lesson, you'll learn how to use querying to fetch one or more items from
 For this lesson, we will use a small database to allow you to try querying on your own. The database has two tables, Books and Authors, and the data is as follows: 
  
 ### Books 
+
 | BookId | AuthorId | Title                           | Genre            | PublicationYear | 
 |--------|----------|---------------------------------|------------------|-----------------| 
 | 1      | 9        | Mrs. Dalloway                   | Literary         | 1925            | 
@@ -29,6 +30,7 @@ For this lesson, we will use a small database to allow you to try querying on yo
 
 
 ### Authors 
+
 | AuthorId | FirstName  | LastName  | 
 |----------|------------|-----------| 
 | 1        | Jack       | London    | 
