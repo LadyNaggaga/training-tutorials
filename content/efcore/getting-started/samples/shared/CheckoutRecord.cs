@@ -6,6 +6,7 @@ public class CheckoutRecord
     public DateTime CheckoutDate { get; set; }
     public DateTime ReturnDate { get; set; }
     public DateTime DueDate { get; set; }
-    public Reader Reader { get; set; }
+    
     public Book Book { get; set; }
+    public Reader Reader { get; set; }
 }

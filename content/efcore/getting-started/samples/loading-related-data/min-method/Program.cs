@@ -9,14 +9,14 @@ public class Program
         using (var context = new LibraryContext())
         {
             var book = context.Books
-                .Single(b => b.Title == "The Scarlet Plague");
+                .Single(b => b.Title.Contains("Orient Express")); 
+ 
+            var earliestCheckout = context.Entry(book) 
+                .Collection(b => b.CheckoutRecords) 
+                .Query() 
+                .Min(cr => cr.CheckoutDate); 
 
-            var year = context.Entry(book)
-                .Collection(b => b.Editions)
-                .Query()
-                .Min(e => e.Year);
-
-            Console.WriteLine("Minimum Year: " + year);
+            Console.WriteLine("Earliest Checkout: {0}", earliestCheckout.ToString("MMMM dd, yyyy"));
         }
     }
 }

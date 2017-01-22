@@ -24,7 +24,7 @@ using (var context = new LibraryContext())
  
 As you can see, it is easy to add new entities to the database with EF Core. First, we add the entity to the database using the `Add` method of the `DbSet`, much like we would when adding items to a `List`. Next, we call the context's `SaveChanges` method. This step is essential because rather than write changes to the database right away, EF Core keeps track of all the pending changes and waits to write them until `SaveChanges` is called. 
  
-Notice that we do not specify the `AuthorId` property before adding the author to the database. This is because `AuthorId` is a generated property, meaning EF Core will automatically generate a value for it. 
+Notice that we do not specify the `Id` property before adding the author to the database. This is because `Id` is a generated property, meaning EF Core will automatically generate a value for it. 
  
 ## Adding Related Data 
  
@@ -100,7 +100,7 @@ using (var context = new LibraryContext())
 { 
     var book = new Book() 
     { 
-        BookId = 1, 
+        Id = 1, 
         Title = "Frankenstein: or, The Modern Prometheus", 
         Genre = "Science Fiction", 
         PublicationYear = 1818 
