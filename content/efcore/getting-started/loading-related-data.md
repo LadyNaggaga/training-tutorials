@@ -46,21 +46,21 @@ using (var context = new LibraryContext())
  
 ## Multi-layer Inclusion 
  
-Now, what happens if one of the properties we include also has non-primitive type properties? By default, they won't be loaded from the database, but we can tell EF Core to load them using the `ThenInclude` method. For example, we can load the reader information for the checkout records of a book like so: 
+Now, what happens if one of the properties we include also has non-primitive type properties? By default, they won't be loaded from the database, but we can tell EF Core to load them using the `ThenInclude` method. For example, we can determine all of the readers who have checked out a specific book by using `Include` to load the book's checkout records and then using `ThenInclude` to load the reader associated with each checkout record as shown below:
  
 ```{.snippet} 
 using (var context = new LibraryContext()) 
 { 
 	var book = context.Book 
 		.Include(b => b.CheckoutRecords) 
-			.ThenInclude(cr => cr.Reader)
+			.ThenInclude(c => c.Reader)
 		.Single(b => b.Id == 1); 
 } 
 ``` 
 :::repl{data-name=then-include-method} 
 :::
  
-We can also chain `ThenInclude` calls to include deeper layers of related data. For example, if we want to find out the reader information for the checkout records of Fredrick Douglass' books in this library, we will need to chain `ThenInclude` calls to get the book, checkout records, and reader information. 
+We can also chain `ThenInclude` calls to include deeper layers of related data. For example, if we want to find out all of the readers who have checked out books written by Frederick Douglass, we will need to chain `ThenInclude` calls to get the associated books, checkout records, and reader information.
  
 ```{.snippet} 
 using (var context = new LibraryContext()) 
@@ -68,20 +68,20 @@ using (var context = new LibraryContext())
 	var author = context.Authors 
 		.Include(a => a.Books) 
 			.ThenInclude(b => b.CheckoutRecords) 
-				.ThenInclude(cr => cr.Reader)
+				.ThenInclude(c => c.Reader)
 		.Single(a => a.LastName == "Douglass"); 
 } 
 ``` 
 :::repl{data-name=then-include-method-chain} 
 :::
  
-A mix of `Include` and `ThenInclude` commands can also be chained together to include related data from multiple layers across related entities. In the following example, we are looking for the author, checkout records, and the readers of those records of _Murder on the Orient Express_. 
+A mix of `Include` and `ThenInclude` commands can also be chained together to include related data from multiple layers across related entities. In the following example, we chain together `Include` and `ThenInclude` commands to load the author of _Murder on the Orient Express_, as well as all of the readers who have checked it out.
  
 ```{.snippet} 
 using (var context = new LibraryContext()) 
 { 
 	var book = context.Books
-        .Include(cr => cr.CheckoutRecords)
+        .Include(c => c.CheckoutRecords)
             .ThenInclude(r => r.Reader)
         .Include(b => b.Author)
         .Single(b => b.Title.Contains("Orient Express"));
@@ -165,7 +165,7 @@ using (var context = new LibraryContext())
     var year = context.Entry(book) 
         .Collection(b => b.CheckoutRecords) 
         .Query() 
-        .Min(cr => cr.CheckoutDate); 
+        .Min(c => c.CheckoutDate); 
 } 
 ``` 
 :::repl{data-name=min-method} 

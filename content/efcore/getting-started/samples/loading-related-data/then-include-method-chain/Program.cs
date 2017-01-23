@@ -11,7 +11,7 @@ public class Program
             var author = context.Authors 
                 .Include(a => a.Books) 
 			        .ThenInclude(b => b.CheckoutRecords) 
-				        .ThenInclude(cr => cr.Reader)
+				        .ThenInclude(c => c.Reader)
                 .Single(a => a.LastName == "Douglass");
 
             foreach (Book book in author.Books)

@@ -10,7 +10,7 @@ public class Program
         {
             var book = context.Books
                 .Include(b => b.CheckoutRecords)
-                    .ThenInclude(cr => cr.Reader)
+                    .ThenInclude(c => c.Reader)
                 .Include(b => b.Author)
                 .Single(b => b.Title.Contains("Orient Express"));
 

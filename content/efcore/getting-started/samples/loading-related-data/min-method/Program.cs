@@ -14,7 +14,7 @@ public class Program
             var earliestCheckout = context.Entry(book) 
                 .Collection(b => b.CheckoutRecords) 
                 .Query() 
-                .Min(cr => cr.CheckoutDate); 
+                .Min(c => c.CheckoutDate); 
 
             Console.WriteLine("Earliest Checkout: {0}", earliestCheckout.ToString("MMMM dd, yyyy"));
         }
