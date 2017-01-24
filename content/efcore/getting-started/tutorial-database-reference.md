@@ -2,16 +2,16 @@
  
 ## Authors  
  
-| AuthorId | FirstName  | LastName  |  
-|----------|------------|-----------|  
-| 1        | Jack       | London    |  
-| 2        | Mark       | Twain     |  
-| 3        | Willa      | Cather    |   
-| 4        | Frederick  | Douglass  |  
-| 7        | Agatha     | Christie  |  
-| 8        | Virginia   | Woolf     |  
-| 9        | Frances    | Harper    |  
-| 10       | Stephen    | Crane     |  
+ AuthorId | FirstName  | LastName  
+----------|------------|-----------
+ 1        | Jack       | London    
+ 2        | Mark       | Twain     
+ 3        | Willa      | Cather     
+ 4        | Frederick  | Douglass  
+ 7        | Agatha     | Christie  
+ 8        | Virginia   | Woolf     
+ 9        | Frances    | Harper    
+ 10       | Stephen    | Crane     
  
 ## Books  
  
