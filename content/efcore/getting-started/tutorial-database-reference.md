@@ -53,7 +53,7 @@ Id   | AddressId | FirstName  | LastName
 
 ## Addresses
  
-Id   | City       | State   
+Id    | City       | State   
 ------|------------|---------
 1     | Springview | Nebraska
 2     | Thurston   | Nebraska
