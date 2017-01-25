@@ -1,6 +1,6 @@
 # Entity Classes 
  
-In code, our entity classes look like: 
+Here is what the entity classes that make up our example data model look like:
  
 ## Author.cs
  

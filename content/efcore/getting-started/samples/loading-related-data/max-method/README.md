@@ -1,6 +1,6 @@
 # Min Method
 
-This code example demonstrates how to use EF Core to query related data from the database using the .Min method.
+This code example demonstrates how to use EF Core to query related data from the database using the .Max method.
 
 ## Code Files:
 - [Program.cs](Program.cs)
