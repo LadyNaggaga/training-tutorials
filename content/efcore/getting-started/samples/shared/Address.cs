@@ -1,6 +1,6 @@
 public class Address
 {
     public int Id { get; set; }
-    public String City { get; set; }
-    public String State { get; set; }
+    public string City { get; set; }
+    public string State { get; set; }
 }
