@@ -11,12 +11,12 @@ public class Program
             var book = context.Books
                 .Single(b => b.Title.Contains("Orient Express")); 
  
-            var earliestCheckout = context.Entry(book) 
+            var mostRecentCheckout = context.Entry(book) 
                 .Collection(b => b.CheckoutRecords) 
                 .Query() 
-                .Min(c => c.CheckoutDate); 
+                .Max(c => c.CheckoutDate); 
 
-            Console.WriteLine("Earliest Checkout: {0}", earliestCheckout.ToString("MMMM dd, yyyy"));
+            Console.WriteLine("Earliest Checkout: {0}", mostRecentCheckout.ToString("MMMM dd, yyyy"));
         }
     }
 }

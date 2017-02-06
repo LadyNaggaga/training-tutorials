@@ -1,7 +1,7 @@
 # Loading Related Data  
  
 > **Note** {.note} 
-> If you want to see the contents of the database or how our entities relate to each other, please refer to the [Database Reference](database-reference.md) and [Model Reference](model-reference) pages. 
+> If you want to see the contents of the database or how our entities relate to each other, please refer to the [Database Reference](tutorial-database-reference.md) and [Model Reference](tutorial-model-reference.md) pages.
  
 ## Single Layer Inclusion 
  
@@ -154,7 +154,7 @@ using (var context = new LibraryContext())
 :::repl{data-name=count-method} 
 :::
  
-Likewise, we can find the date of the first checkout record of a book using the `Min` method: 
+Likewise, we can find the most recent date a specific book was checked out using the `Max` method: 
  
 ```{.snippet} 
 using (var context = new LibraryContext()) 
@@ -162,12 +162,12 @@ using (var context = new LibraryContext())
     var book = context.Books
         .Single(b => b.Title.Contains("Orient Express")); 
  
-    var year = context.Entry(book) 
+    var mostRecentCheckout = context.Entry(book) 
         .Collection(b => b.CheckoutRecords) 
         .Query() 
-        .Min(c => c.CheckoutDate); 
+        .Max(c => c.CheckoutDate); 
 } 
 ``` 
-:::repl{data-name=min-method} 
+:::repl{data-name=max-method} 
 :::
  
