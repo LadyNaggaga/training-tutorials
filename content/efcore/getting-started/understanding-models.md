@@ -4,7 +4,7 @@ In this lesson, we are going to learn what a data model is and how to manually d
  
 ## What is a Data Model? 
  
-A data model is a representation of the different types of information within a system and their relationships. For example, in a relational database, the database schema (tables, columns, etc.) would make up the data model. In EF Core, you will often hear these data models simply referred to as "models."  
+A data model is a representation of the different types of information within a system and their relationships. For example, in a relational database, the database schema (tables, columns, etc.) would make up the data model. You sometimes hear these data models simply referred to as "models" in EF Core.  
  
 ## Defining a Data Model 
  
