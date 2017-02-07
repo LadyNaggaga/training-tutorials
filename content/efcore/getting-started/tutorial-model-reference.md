@@ -1,5 +1,5 @@
 # Entity Classes 
-This document contains class definitions of the example data models used throughout this tutorial.
+This document contains the entity class definitions for the example data model used throughout this tutorial.
 
 ## Author.cs
  
