@@ -1,7 +1,6 @@
 # Entity Classes 
- 
-Here is what the entity classes that make up our example data model look like:
- 
+This document contains class definitions of the example data models used throughout this tutorial.
+
 ## Author.cs
  
 ```{.snippet} 

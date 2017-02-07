@@ -1,5 +1,5 @@
 # Database Reference
-Below are the tables and data that these tutorials work with.
+This document details the data contained within the example database used throughout this tutorial.
  
 ## Authors  
  
