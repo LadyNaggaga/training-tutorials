@@ -14,15 +14,17 @@ Let's look at an example. Imagine we are creating a library application. What ty
  
 ```{C#} 
 public class Book { 
+public int Id { get; set;} 
 public string Title { get; set; } 
 public int PublicationYear { get; set; } 
 } 
  
 public class Reader { 
+public int Id { get; set;} 
 public string FirstName { get; set; } 
 public string LastName { get; set; } 
 } 
-``` 
+```
  
 > **NOTE** {.note}  
 > We will be using this library example throughout the tutorial. It is very simple at the moment, but we will be adding more data members and entities in later lessons to make it more like a full-fledged library application. 
@@ -36,8 +38,6 @@ public DbSet<Book> Books { get; set; }
 public DbSet<Reader> Readers { get; set; } 
 } 
 ``` 
- 
-In later tutorials, we will discuss setting properties (such as primary keys) on entities. 
  
 Now that we have defined our data model, we can use EF Core to interact with a matching database. It is important that the data model and database schema match because otherwise EF Core won't be able to translate between the two, and it will just throw an error instead.  
  
