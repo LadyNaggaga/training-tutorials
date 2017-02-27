@@ -2,6 +2,9 @@
  
 Four operations that we often perform on a record in a database are create, read, update, and delete (commonly referred to as "CRUD" operations). We walked through how to read records from a database in the [Querying Data](querying.md) tutorial. Now let's learn how to perform the other CRUD operations which allow us to manipulate records in the database. 
  
+> **Note** {.note} 
+> If you want to see the contents of the database or how our entities relate to each other, please refer to the [Database Reference](tutorial-database-reference.md) and [Model Reference](tutorial-model-reference.md) pages.
+ 
 ## Adding Entities to a Database 
  
 Let's first look at how to create a new record in the database. In the following example, we create a new author and add it to the database: 
@@ -24,7 +27,7 @@ using (var context = new LibraryContext())
  
 As you can see, it is easy to add new entities to the database with EF Core. First, we add the entity to the database using the `Add` method of the `DbSet`, much like we would when adding items to a `List`. Next, we call the context's `SaveChanges` method. This step is essential because rather than write changes to the database right away, EF Core keeps track of all the pending changes and waits to write them until `SaveChanges` is called. 
  
-Notice that we do not specify the `AuthorId` property before adding the author to the database. This is because `AuthorId` is a generated property, meaning EF Core will automatically generate a value for it. 
+Notice that we do not specify the `Id` property before adding the author to the database. This is because `Id` is a generated property, meaning EF Core will automatically generate a value for it. 
  
 ## Adding Related Data 
  
@@ -100,7 +103,7 @@ using (var context = new LibraryContext())
 { 
     var book = new Book() 
     { 
-        BookId = 1, 
+        Id = 1, 
         Title = "Frankenstein: or, The Modern Prometheus", 
         Genre = "Science Fiction", 
         PublicationYear = 1818 
@@ -129,7 +132,7 @@ using (var context = new LibraryContext())
  
 ## Deleting Related Data 
  
-In the previous example, we were able to successfully delete a book, but what happened to that book's editions and publishers? The short answer is it depends. The way that EF Core handles deletion of an entity with related data depends on several factors including whether the related data is tracked, how EF Core is configured, and how the database is configured. To learn more about the available behaviors and how to configure a certain behavior, check out the [Cascade Delete]() lesson.  
+In the previous example, we were able to successfully delete a book, but what happened to that book's checkout records? The short answer is it depends. The way that EF Core handles deletion of an entity with related data depends on several factors including whether the related data is tracked, how EF Core is configured, and how the database is configured. To learn more about the available behaviors and how to configure a certain behavior, check out the [Cascade Delete]() lesson.  
  
 > **Note** {.note} 
 > The Cascade Delete lesson has not been added yet. For now, please refer to the [Cascade Delete](https://docs.microsoft.com/en-us/ef/core/saving/cascade-delete) page in the docs.
