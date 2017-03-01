@@ -12,6 +12,7 @@ By convention, EF Core assumes that a property named `Id` or `<type name>Id` is 
 public class Book 
 { 
     public int Id { get; set; }  // You could also use 'BookId' here 
+	public int ISBN { get; set; }
     public string Title { get; set; } 
     public string Genre { get; set; } 
     public int PublicationYear { get; set; } 
@@ -37,23 +38,23 @@ public class LibraryContext : DbContext
 } 
  
 ```  
-:::repl{data-name=primary-key-fluent-api}  
+:::repl{data-name=unconventional-key-name}  
 ::: 
  
 ## Composite Keys 
  
-Instead of adding a property to an entity solely for the purpose of uniquely identifying it, you may be able to use a combination of its existing properties instead. For example, we could use a book's title and publication year to uniquely identify it (assuming multiple books with the same title are not published during the same year). Combining multiple properties as a unique identifier like this is known as a **composite key**.  
+Instead of adding a property to an entity solely for the purpose of uniquely identifying it, you may be able to use a combination of its existing properties. For example, in our library data model we added an Id property to `CheckoutRecord`, but a book can't be checked out by multiple readers at the same time, so we could use its `ReaderId`, `BookId`, and `CheckoutDate` properties to uniquely identify it instead. Combining multiple properties as a unique identifier like this is known as a **composite key**.  
  
-To configure a composite key, we use Fluent API's `HasKey` method. In the following example, we configure a composite key for `Book` based on its `Title` and `PublicationYear` properties. 
+To configure a composite key, we use Fluent API's `HasKey` method. In the following example, we configure a composite key for `CheckoutRecord` based on its `CheckoutDate` and its foreign keys `ReaderId` and `BookId`. 
  
 ```{.snippet}  
 public class LibraryContext : DbContext 
 { 
-	public DbSet<Book> Books { get; set; } 
+	public DbSet<CheckoutRecord> CheckoutRecords { get; set; } 
  
 	protected override void OnModelCreating(ModelBuilder modelBuilder) { 
-		modelBuilder.Entity<Book>() 
-			.HasKey(b => new { b.Title, b.PublicationYear }); 
+		modelBuilder.Entity<CheckoutRecord>() 
+		.HasKey(b => new { cr.ReaderId, cr.BookId, cr.CheckoutDate }); 
 	} 
 } 
  

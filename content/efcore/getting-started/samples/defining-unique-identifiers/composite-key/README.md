@@ -1,8 +1,10 @@
-# Composite Key Using Fluent API
+# Composite Key
 
-This code example demonstrates how to use EF Core to set properties as a composite key using Fluent API.
+This code example demonstrates how to configure a composite key in EF Core via Fluent API.
 
 ## Code Files:
 - [Program.cs](Program.cs)
 - [LibraryContext.cs](LibraryContext.cs)
 - [CheckoutRecord.cs](CheckoutRecord.cs)
+- [Book.cs](../../shared/Book.cs)
+- [Reader.cs](../../shared/Reader.cs)

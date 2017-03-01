@@ -1,6 +1,6 @@
 # Primary Key
 
-This code example demonstrates how EF Core sets a property as the primary key by convention.
+This code example demonstrates how primary keys work in EF Core by convention.
 
 ## Code Files:
 - [Program.cs](Program.cs)
