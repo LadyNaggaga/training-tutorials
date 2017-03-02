@@ -20,7 +20,7 @@ using (var context = new LibraryContext())
  
 In order to interact with the database via EF Core, we must first create an instance of our context (`LibraryContext`). `LibraryContext` extends EF Core's [`DbContext`](https://msdn.microsoft.com/library/system.data.entity.dbcontext) class which manages entity objects during runtime, and allows us to perform common database operations like running queries.
 
-Notice that we create the context with the `using` keyword. This automatically disposes the context after the using block has finished executing. Alternatively, we could manually call `LibraryContext.dispose()`, but the `using` method is more convenient and readable. It is imperative that we dispose of the context after we are finished using it because it holds an open connection to the database. 
+Notice that we create the context with the `using` keyword. This automatically disposes the context after the using block has finished executing. Alternatively, we could manually call the `dispose` method on our `LibraryContext`, but the `using` method is more convenient and readable. It is imperative that we dispose of the context after we are finished using it because it holds an open connection to the database. 
  
 Once we have an instance of the context, we can use it to interact with the database. To access the books in the database, we reference the relevant `DbSet` within the context - `Books` in our case - and call the `ToList` method to convert the `DbSet` to a `List`. The resulting list will contain all of the books within the database. 
  
@@ -57,4 +57,4 @@ using (var context = new LibraryContext())
 :::repl{data-name=loading-single-entity}
 :::
  
-In this example, we use the `Single` extension method to find the book with an `Id` of 1. Note that we do not need to call `ToList()` because `Single` returns a single entity. It is important to only use `Single` with unique identifiers because if multiple entities meet the success criteria a `System.InvalidOperationException` will be thrown. 
+In this example, we use the `Single` extension method to find the book with an `Id` of 1. Note that we do not need to call `ToList` because `Single` returns a single entity. It is important to only use `Single` with unique identifiers because if multiple entities meet the success criteria a `System.InvalidOperationException` will be thrown. 
