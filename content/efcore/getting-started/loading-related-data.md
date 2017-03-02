@@ -17,7 +17,7 @@ using (var context = new LibraryContext())
 :::repl{data-name=field-not-included} 
 :::
  
-We need to explicitly tell EF Core if we want to load a non-primitive type like the `Author` field. We do this using the `Include` method. In the example below, the book that is returned will include its author's information. 
+We need to explicitly tell EF Core if we want to load a non-primitive type like the `Author` field. We do this using the `Include` method. In the example below, the `Book` that is returned will include its `Author` information. 
  
 ```{.snippet} 
 using (var context = new LibraryContext()) 
