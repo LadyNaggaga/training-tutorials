@@ -12,7 +12,7 @@ By convention, EF Core assumes that a property named `Id` or `<type name>Id` is 
 public class Book 
 { 
     public int Id { get; set; }  // You could also use 'BookId' here 
-	public int ISBN { get; set; }
+    public int ISBN { get; set; }
     public string Title { get; set; } 
     public string Genre { get; set; } 
     public int PublicationYear { get; set; } 
@@ -29,13 +29,13 @@ In some cases, you may not want to use the conventional naming scheme for your p
      
 public class LibraryContext : DbContext 
 { 
-	public DbSet<Book> Books { get; set; } 
+    public DbSet<Book> Books { get; set; } 
  
-	protected override void OnModelCreating(ModelBuilder modelBuilder) { 
-		modelBuilder.Entity<Book>() 
-			.HasKey(b => b.ISBN); 
-	} 
-} 
+    protected override void OnModelCreating(ModelBuilder modelBuilder) { 
+        modelBuilder.Entity<Book>() 
+            .HasKey(b => b.ISBN); 
+    }
+}
  
 ```  
 :::repl{data-name=unconventional-key-name}  
@@ -50,13 +50,13 @@ To configure a composite key, we use Fluent API's `HasKey` method. In the follow
 ```{.snippet}  
 public class LibraryContext : DbContext 
 { 
-	public DbSet<CheckoutRecord> CheckoutRecords { get; set; } 
+    public DbSet<CheckoutRecord> CheckoutRecords { get; set; } 
  
-	protected override void OnModelCreating(ModelBuilder modelBuilder) { 
-		modelBuilder.Entity<CheckoutRecord>() 
-		.HasKey(b => new { cr.ReaderId, cr.BookId, cr.CheckoutDate }); 
-	} 
-} 
+    protected override void OnModelCreating(ModelBuilder modelBuilder) { 
+        modelBuilder.Entity<CheckoutRecord>() 
+            .HasKey(b => new { cr.ReaderId, cr.BookId, cr.CheckoutDate }); 
+    }
+}
  
 ```  
 :::repl{data-name=composite-key} 
