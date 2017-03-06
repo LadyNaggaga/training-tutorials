@@ -43,7 +43,7 @@ public class LibraryContext : DbContext
  
 ## Composite Keys 
  
-Instead of adding a property to an entity solely for the purpose of uniquely identifying it, you may be able to use a combination of its existing properties. For example, in our library data model we added an Id property to `CheckoutRecord`, but a book can't be checked out by multiple readers at the same time, so we could use its `ReaderId`, `BookId`, and `CheckoutDate` properties to uniquely identify it instead. Combining multiple properties as a unique identifier like this is known as a **composite key**.  
+Instead of adding a property to an entity solely for the purpose of uniquely identifying it, you may be able to use a combination of its existing properties. For example, in our library data model we added an `Id` property to `CheckoutRecord`, but a book can't be checked out by multiple readers at the same time, so we could use its `ReaderId`, `BookId`, and `CheckoutDate` properties to uniquely identify it instead. Combining multiple properties as a unique identifier like this is known as a **composite key**.  
  
 To configure a composite key, we use Fluent API's `HasKey` method. In the following example, we configure a composite key for `CheckoutRecord` based on its `CheckoutDate` and its foreign keys `ReaderId` and `BookId`. 
  

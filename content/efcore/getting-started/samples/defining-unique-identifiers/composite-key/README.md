@@ -6,5 +6,3 @@ This code example demonstrates how to configure a composite key in EF Core via F
 - [Program.cs](Program.cs)
 - [LibraryContext.cs](LibraryContext.cs)
 - [CheckoutRecord.cs](CheckoutRecord.cs)
-- [Book.cs](../../shared/Book.cs)
-- [Reader.cs](../../shared/Reader.cs)
