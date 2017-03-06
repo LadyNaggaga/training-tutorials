@@ -8,7 +8,7 @@ public class LibraryContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Book>()
-            .HasKey(b => new { b.ISBN });
+            .HasKey(b => b.ISBN);
     }
 
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
