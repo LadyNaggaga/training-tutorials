@@ -5,4 +5,5 @@ public class Reader
     public string LastName { get; set; }
 
     public Address Address { get; set; }
+    public List<CheckoutRecord> CheckoutRecords { get; set; }
 }
