@@ -1,4 +1,6 @@
-# Loading Related Data  
+# Loading Related Data
+
+In this lesson, we will cover how to load non-primitive types from the database, how chain commands to include multiple layers of related data, and how to use explicit loading and aggregate functions.
  
 > **Note** {.note} 
 > If you want to see the contents of the database or how our entities relate to each other, please refer to the [Database Reference](tutorial-database-reference.md) and [Model Reference](tutorial-model-reference.md) pages.
