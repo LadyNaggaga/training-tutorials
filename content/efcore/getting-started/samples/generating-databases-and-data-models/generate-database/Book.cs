@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 public class Book
 {
     public int Id { get; set; }
