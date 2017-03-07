@@ -50,7 +50,7 @@ Id   | AddressId | FirstName  | LastName
 3    | 3         | Ryan       | Helmoski   
 4    | 4         | Melia      | Deakin     
 5    | 5         | David      | Mikhayelyan
-6    | 3         | Aryn       | Huck       
+6    | 6         | Aryn       | Huck       
 
 ## Addresses
  
@@ -61,3 +61,4 @@ Id    | City       | State
 3     | Holstein   | Nebraska   
 4     | Gurley     | Nebraska
 5     | Lincoln    | Nebraska
+6     | Harrison   | Nebraska
