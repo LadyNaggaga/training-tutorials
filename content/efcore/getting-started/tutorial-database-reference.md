@@ -50,7 +50,7 @@ Id   | AddressId | FirstName  | LastName
 3    | 3         | Ryan       | Helmoski   
 4    | 4         | Melia      | Deakin     
 5    | 5         | David      | Mikhayelyan
-6    | 6         | Aryn       | Huck       
+6    | 3         | Aryn       | Huck       
 
 ## Addresses
  
