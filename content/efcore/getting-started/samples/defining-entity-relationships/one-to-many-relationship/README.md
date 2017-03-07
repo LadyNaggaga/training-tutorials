@@ -4,6 +4,6 @@ This code example demonstrates how to create a one-to-many relationship using na
 
 ## Code Files:
 - [Program.cs](../shared/Program.cs)
-- [Author.cs](Author.cs)
+- [Author.cs](../../shared/Author.cs)
 - [Book.cs](Book.cs)
 - [LibraryContext.cs](LibraryContext.cs)
