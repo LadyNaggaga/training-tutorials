@@ -7,4 +7,6 @@ This code example demonstrates how to create a many-to-many relationship using a
 - [Reader.cs](../../shared/Reader.cs)
 - [CheckoutRecord.cs](../../shared/CheckoutRecord.cs)
 - [Book.cs](../../shared/Book.cs)
+- [Address.cs](../../shared/Address.cs)
+- [Author.cs](../../shared/Author.cs)
 - [LibraryContext.cs](LibraryContext.cs)
