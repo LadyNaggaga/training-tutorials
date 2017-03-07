@@ -1,13 +1,13 @@
 # Manipulating Entities 
  
-Four operations that we often perform on a record in a database are create, read, update, and delete (commonly referred to as "CRUD" operations). We walked through how to read records from a database in the [Querying Data](querying.md) tutorial. Now let's learn how to perform the other CRUD operations which allow us to manipulate records in the database. 
+Four operations that we often perform on a record in a database are create, read, update, and delete (commonly referred to as "CRUD" operations). We walked through how to read records from a database in the [Querying Data](querying.md) lesson. In this lesson, we'll learn how to perform the other CRUD operations which allow us to manipulate records in the database. 
  
-> **Note** {.note} 
+> **Note** {.note}  
 > If you want to see the contents of the database or how our entities relate to each other, please refer to the [Database Reference](tutorial-database-reference.md) and [Model Reference](tutorial-model-reference.md) pages.
  
 ## Adding Entities to a Database 
  
-Let's first look at how to create a new record in the database. In the following example, we create a new author and add it to the database: 
+Let's first look at how to create a new record in the database. In the following example, we create a new `Author` and add it to the database: 
   
 ```{.snippet}
 using (var context = new LibraryContext()) 
@@ -134,5 +134,5 @@ using (var context = new LibraryContext())
  
 In the previous example, we were able to successfully delete a book, but what happened to that book's checkout records? The short answer is it depends. The way that EF Core handles deletion of an entity with related data depends on several factors including whether the related data is tracked, how EF Core is configured, and how the database is configured. To learn more about the available behaviors and how to configure a certain behavior, check out the [Cascade Delete]() lesson.  
  
-> **Note** {.note} 
+> **Note** {.note}  
 > The Cascade Delete lesson has not been added yet. For now, please refer to the [Cascade Delete](https://docs.microsoft.com/en-us/ef/core/saving/cascade-delete) page in the docs.

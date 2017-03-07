@@ -1,6 +1,8 @@
-# Loading Related Data  
+# Loading Related Data
+
+In this lesson, we will cover how to load non-primitive types from the database using both eager loading and explicit loading, as well as how to use aggregate functions to perform calculations on our data without loading it from the database.
  
-> **Note** {.note} 
+> **Note** {.note}  
 > If you want to see the contents of the database or how our entities relate to each other, please refer to the [Database Reference](tutorial-database-reference.md) and [Model Reference](tutorial-model-reference.md) pages.
  
 ## Single Layer Inclusion 
@@ -17,7 +19,7 @@ using (var context = new LibraryContext())
 :::repl{data-name=field-not-included} 
 :::
  
-We need to explicitly tell EF Core if we want to load a non-primitive type like the Author field. We do this using the `Include` method. In the example below, the book that is returned will include its author's information. 
+We need to explicitly tell EF Core if we want to load a non-primitive type like the `Author` field. We do this using the `Include` method. In the example below, the `Book` that is returned will include its `Author` information. 
  
 ```{.snippet} 
 using (var context = new LibraryContext()) 
@@ -92,7 +94,7 @@ using (var context = new LibraryContext())
  
 ## Explicit Loading 
   
-> **Note** {.note}
+> **Note** {.note}  
 > Explicit Loading support was introduced in EF Core 1.1.0. If you are using an earlier release, the functionality in this section will not be available.
 
 In the previous section, we used **eager loading** which loads the related data from the database as part of the initial database query. Another option is to use **explicit loading** which retrieves the related data separately from the original database query. This allows us to query and filter the related entities before loading them into memory, so we only pull the necessary information from the database. 
@@ -137,7 +139,7 @@ By using explicit loading, we were able to load only the book we want (_Adventur
  
 ### Aggregate Functions 
 
-When using explicit loading, we can also use aggregate functions, such as count, max, min, and sum, which allow us to perform calculations on the data without loading it all into memory. The following example counts how many books in the library are by Willa Cather without having to load all of the books into memory: 
+When using explicit loading, we can also use aggregate functions, such as `Count`, `Max`, `Min`, and `Sum`, which allow us to perform calculations on the data without loading it all into memory. The following example counts how many books in the library are by Willa Cather without having to load all of the books into memory: 
  
 ```{.snippet} 
 using (var context = new LibraryContext()) 

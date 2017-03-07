@@ -2,7 +2,7 @@
  
 In this lesson, you'll learn how to use querying to fetch one or more items from your database. EF Core uses LINQ to query data, so it is important that you understand LINQ before going through this lesson. Check out the [LINQ lesson](../../csharp/getting-started/linq.md) in the C# Interactive Tutorial if you need a refresher. 
  
-> **Note** {.note} 
+> **Note** {.note}  
 > If you want to see the contents of the database or how our entities relate to each other, please refer to the [Database Reference](tutorial-database-reference.md) and [Model Reference](tutorial-model-reference.md) pages.
  
 ## Loading All Entities 
@@ -57,4 +57,4 @@ using (var context = new LibraryContext())
 :::repl{data-name=loading-single-entity}
 :::
  
-In this example, we use the `Single` extension method to find the book with an `Id` of 1. Note that we do not need to call `ToList()` because `Single` returns a single entity. It is important to only use `Single` with unique identifiers because if multiple entities meet the success criteria a `System.InvalidOperationException` will be thrown. 
+In this example, we use the `Single` extension method to find the book with an `Id` of 1. Note that we do not need to call `ToList` because `Single` returns a single entity. It is important to only use `Single` with unique identifiers because if multiple entities meet the success criteria a `System.InvalidOperationException` will be thrown. 
