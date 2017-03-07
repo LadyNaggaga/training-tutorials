@@ -2,6 +2,7 @@
 - [Installing EF Core](installing-ef-core.md)
 - [Understanding Data Models](understanding-data-models.md)
 - [Defining Unique Identifiers](defining-unique-identifiers.md)
+- [Defining Entity Relationships](defining-entity-relationships.md)
 - [Querying Data](querying.md)
 - [Loading Related Data](loading-related-data.md)
 - [Manipulating Entities](manipulating-entities.md)
