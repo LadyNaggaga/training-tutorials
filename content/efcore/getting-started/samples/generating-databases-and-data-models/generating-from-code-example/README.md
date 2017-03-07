@@ -1,4 +1,4 @@
-# Primary Key
+# Generating from Code
 
 This code example shows what the database schema would be for the model included in the example.
 
