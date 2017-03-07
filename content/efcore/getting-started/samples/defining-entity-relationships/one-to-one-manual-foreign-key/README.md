@@ -4,6 +4,6 @@ This code example demonstrates how to create a one-to-one relationship by manual
 
 ## Code Files:
 - [Program.cs](../shared/Program.cs)
-- [Reader.cs](Reader.cs)
-- [Address.cs](../../shared/Address.cs)
+- [Reader.cs](../shared/Reader.cs)
+- [Address.cs](../shared/Address.cs)
 - [LibraryContext.cs](LibraryContext.cs)
