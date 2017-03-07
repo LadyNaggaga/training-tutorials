@@ -48,14 +48,14 @@ dotnet ef migrations add [migration name]
 dotnet ef migrations update  
 ``` 
   
-Anytime you make changes to the data model, you will need to add and run a new migration for the changes to be reflected in your database. 
+Anytime we make changes to the data model, we will need to add and run a new migration for the changes to be reflected in our database. 
  
 ## Generating a Data Model from an Existing Database 
   
-We can also have EF Core automatically generate a data model from an existing database. To generate a model from your database, first create an EF Core project. Be sure to follow the steps in the [Installing EF Core](installing-ef-core.md) lesson so your project is properly connected to EF Core. Once your project is ready-to-go, navigate to the directory of your project which contains the `project.json` file in command line. Next, run the [dotnet-ef-dbcontext-scaffold](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet#dotnet-ef-dbcontext-scaffold) command to create a model from the existing database. 
+You can also have EF Core automatically generate a data model from an existing database (we'll walk through how to do this, but you don't have to follow along if you don't have a pre-existing database). To generate a model from a database, first create an EF Core project. Be sure to follow the steps in the [Installing EF Core](installing-ef-core.md) lesson so your project is properly connected to EF Core. Once your project is ready-to-go, navigate to the directory of your project which contains the `project.json` file in command line. Next, run the [dotnet-ef-dbcontext-scaffold](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet#dotnet-ef-dbcontext-scaffold) command to create a model from the existing database. 
  
 ``` 
-dotnet ef dbcontext scaffold <your DB connection string> <your DB provider namespace> 
+dotnet ef dbcontext scaffold <DB connection string> <DB provider namespace> 
 ``` 
  
 For example, if we wanted to generate a data model from an existing SQLite database, we would run the following command: 
