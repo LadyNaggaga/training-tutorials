@@ -13,7 +13,7 @@ dotnet ef migrations add [migration name]
 ``` 
  
 > **Note** {.note}  
-> If the above command fails with the error message, `No executable found matching command "dotnet-ef"`, make sure `Microsoft.EntityFrameworkCore.Tools` has been installed for your project, as shown in the [Installing EF Core]('installing-ef-core.md`) lesson. Also ensure you are running the command from the directory that contains your `project.json` file. 
+> If the above command fails with the error message, `No executable found matching command "dotnet-ef"`, make sure `Microsoft.EntityFrameworkCore.Tools` has been installed for your project, as shown in the [Installing EF Core](installing-ef-core.md) lesson. Also ensure you are running the command from the directory that contains your `project.json` file. 
   
 Finally, we would run the [dotnet-ef-database-update](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet#dotnet-ef-database-update) command to execute the database-creation code. 
  
@@ -25,21 +25,21 @@ After running the above command, we will have a new database that exactly matche
 
 ```{.snippet}   
 public class Book {  
-public int Id { get; set;}  
-public string Title { get; set; }  
-public int PublicationYear { get; set; }  
+    public int Id { get; set; }  
+    public string Title { get; set; }  
+    public int PublicationYear { get; set; }  
 }  
   
 public class Reader {  
-public int Id { get; set;}  
-public string FirstName { get; set; }  
-public string LastName { get; set; }  
+    public int Id { get; set; }  
+    public string FirstName { get; set; }  
+    public string LastName { get; set; }  
 }  
 ``` 
-:::repl{data-name=generating-from-code-example}   
+:::repl{data-name=generate-database}   
 ::: 
  
-## Modifying an existing database 
+## Modifying an Existing Database 
   
 If we ever need to make changes to our data model in the future, migrations can also be used to modify our database. To do this, we first update our entity classes; then, we use the same migration commands we used to originally create the database, but with a new migration name. 
  
@@ -52,7 +52,7 @@ Anytime you make changes to the data model, you will need to add and run a new m
  
 ## Generating a Data Model from an Existing Database 
   
-We can also have EF Core automatically generate a data model from an existing database. To generate a model from your database, first create an EF Core project. Be sure to follow the steps in the [Installing EF Core]('installing-ef-core.md`) lesson so your project is properly connected to EF Core. Once your project is ready-to-go, navigate to the directory of your project which contains the `project.json` file in command line. Next, run the [dotnet-ef-dbcontext-scaffold](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet#dotnet-ef-dbcontext-scaffold) command to create a model from the existing database. 
+We can also have EF Core automatically generate a data model from an existing database. To generate a model from your database, first create an EF Core project. Be sure to follow the steps in the [Installing EF Core](installing-ef-core.md) lesson so your project is properly connected to EF Core. Once your project is ready-to-go, navigate to the directory of your project which contains the `project.json` file in command line. Next, run the [dotnet-ef-dbcontext-scaffold](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet#dotnet-ef-dbcontext-scaffold) command to create a model from the existing database. 
  
 ``` 
 dotnet ef dbcontext scaffold <your DB connection string> <your DB provider namespace> 

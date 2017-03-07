@@ -8,6 +8,6 @@ public class LibraryContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite(DBHelper.GetReadonlyDbConnectionString());
+        optionsBuilder.UseSqlite(DBHelper.GetMigrationDbConnectionString());
     }
 }
