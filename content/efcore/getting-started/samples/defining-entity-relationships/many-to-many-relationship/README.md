@@ -4,9 +4,7 @@ This code example demonstrates how to create a many-to-many relationship using a
 
 ## Code Files:
 - [Program.cs](../shared/Program.cs)
-- [Reader.cs](../../shared/Reader.cs)
+- [Reader.cs](Reader.cs)
 - [CheckoutRecord.cs](../../shared/CheckoutRecord.cs)
-- [Book.cs](../../shared/Book.cs)
-- [Address.cs](../../shared/Address.cs)
-- [Author.cs](../../shared/Author.cs)
+- [Book.cs](Book.cs)
 - [LibraryContext.cs](LibraryContext.cs)

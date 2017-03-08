@@ -107,7 +107,6 @@ public class Reader
     public string FirstName { get; set; } 
     public string LastName { get; set; } 
  
-    public Address Address { get; set; }  
     public List<CheckoutRecord> CheckoutRecords { get; set; } 
 } 
  
@@ -118,7 +117,6 @@ public class Book
     public string Genre { get; set; } 
     public int PublicationYear { get; set; } 
  
-    public Author Author { get; set; } 
     public List<CheckoutRecord> CheckoutRecords { get; set; } 
 } 
  
