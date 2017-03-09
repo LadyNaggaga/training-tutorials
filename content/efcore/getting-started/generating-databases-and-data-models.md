@@ -4,7 +4,7 @@ In this lesson, we will learn how to generate a database from a data model, modi
  
 ## Generating a Database from a Data Model 
  
-We can generate a new database that exactly matches our data model using EF Core **migrations**. Migrations are a feature in the EF Core command line tools which take your data model as input and generate database-creation code as output. The resulting code can then be applied to create a new database. 
+We can generate a new database that exactly matches our data model using EF Core **migrations**. Migrations are a feature in the EF Core command line tools which take a data model as input and generate database-creation code as output. The resulting code can then be applied to create a new database. 
  
 Let's say we want to generate a database from our library example, we would first navigate to that project's directory from the command line. Then we would run the [dotnet-ef-migrations-add](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-add) command to generate the database-creation code: 
  
@@ -52,7 +52,7 @@ Anytime we make changes to the data model, we will need to add and run a new mig
  
 ## Generating a Data Model from an Existing Database 
   
-You can also have EF Core automatically generate a data model from an existing database (we'll walk through how to do this, but you don't have to follow along if you don't have a pre-existing database). To generate a model from a database, first create an EF Core project. Be sure to follow the steps in the [Installing EF Core](installing-ef-core.md) lesson so your project is properly connected to EF Core. Once your project is ready-to-go, navigate to the directory of your project which contains the `project.json` file in command line. Next, run the [dotnet-ef-dbcontext-scaffold](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet#dotnet-ef-dbcontext-scaffold) command to create a model from the existing database. 
+We can also have EF Core automatically generate a data model from an existing database. First, we create an EF Core project by following the steps in the [Installing EF Core](installing-ef-core.md) lesson. Once the project is ready-to-go, navigate to the directory that contains the `project.json` file in command line. Next, run the [dotnet-ef-dbcontext-scaffold](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet#dotnet-ef-dbcontext-scaffold) command to create a model from the existing database. 
  
 ``` 
 dotnet ef dbcontext scaffold <DB connection string> <DB provider namespace> 
