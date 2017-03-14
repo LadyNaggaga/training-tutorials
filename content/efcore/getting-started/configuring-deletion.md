@@ -1,14 +1,14 @@
 # Configuring Deletion 
  
-When a record is deleted from a database, its dependent records are also affected. In this lesson, we will learn the various strategies a relational database can use to handle dependent records when a principal record is deleted, as well as how to configure each strategy in EF Core. 
+When a record is deleted from a database, its dependent records are also affected. In this lesson, we will learn the various behaviors a relational database can use to handle dependent records when a principal record is deleted, as well as how to configure each behavior in EF Core. 
  
 ## Deletion Strategies 
  
-There are three strategies that a database can use to handle a dependent of a deleted record: 
+There are three behaviors that a database can use to handle a dependent of a deleted record: 
  
   * Delete it. This is known as **cascade deletion** because the deletion of the principal record is cascaded to its dependents. 
   * Change its foreign key value from the primary key of the deleted record to `null`. 
-  * Leave it alone. 
+  * Leave it unchanged. 
  
 ## Configuring Deletion Strategies 
  
@@ -31,9 +31,9 @@ public class Program {
 :::repl(data-name=default-deletion-strategy) 
 ::: 
  
-To use one of the other deletion strategies, we use Fluent API's `OnDelete` method with the `DeleteBehavior` enum as an argument. The possible values of the `DeleteBehavior` enum are `Cascade`, `SetNull`, and `Restrict` (leave the dependent entity alone).  
+To use one of the other deletion behaviors, we use Fluent API's `OnDelete` method with the `DeleteBehavior` enum as an argument. The possible values of the `DeleteBehavior` enum are `Cascade`, `SetNull`, and `Restrict` (leave the dependent entity alone).  
  
-Let's try setting the delete behavior to `SetNull`. When a `Reader` is deleted, the `ReaderId` property of its dependent `Address` will be set to `null`.  
+Let's try setting the delete behavior for `Reader` to `SetNull`. When a `Reader` is deleted, the `ReaderId` property of its dependent `Address` will be set to `null`.  
  
 ```{.snippet} 
  
@@ -50,9 +50,8 @@ public class LibraryContext : DbContext
             .OnDelete(DeleteBehavior.SetNull); // `SetNull`, `Restrict`, or `Cascade` 
     }  
 }  
- 
 ``` 
-:::repl(data-name=manual-deletion-strategy) 
+:::repl(data-name=deletion-configuration) 
 ::: 
  
 If you change the delete behavior to `Restrict` and run the example again, you will see that the dependent `Address` will be unaffected.  

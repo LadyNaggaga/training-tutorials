@@ -1,6 +1,6 @@
-# Manual Deletion Strategy
+# Deletion Configuration
 
-This code example demonstrates how deletion is configured in EF Core using the OnDelete method and its parameters: Cascade Delete, SetNull, and Restrict.
+This code example demonstrates how to manually configure the deletion behavior for EF Core using Fluent API.
 
 ## Code Files:
 - [Program.cs](Program.cs)

@@ -17,10 +17,12 @@ public class Program
             context.Readers.Remove(reader);
             context.SaveChanges();
 
-            if (context.Addresses.Any(a => a.Id == 1)){
+            if (context.Addresses.Any(a => a.Id == 1))
+            {
                 Console.WriteLine("Address exists");
             }
-            else{
+            else
+            {
                 Console.WriteLine("Address has been deleted");
             }
         }
