@@ -9,10 +9,10 @@ Id   | FirstName  | LastName
 2    | Mark       | Twain   
 3    | Willa      | Cather   
 4    | Frederick  | Douglass
-7    | Agatha     | Christie
-8    | Virginia   | Woolf   
-9    | Frances    | Harper  
-10   | Stephen    | Crane   
+5    | Agatha     | Christie
+6    | Virginia   | Woolf   
+7    | Frances    | Harper  
+8    | Stephen    | Crane   
  
 ## Books  
  
