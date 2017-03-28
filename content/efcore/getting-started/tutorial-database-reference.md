@@ -29,7 +29,7 @@ Id   | AuthorId | Title                           | Genre            | Publicati
 9    | 7        | Iola Leroy                      | Historical       | 1892           
 10   | 5        | Murder on the Orient Express    | Mystery          | 1934           
 11   | 1        | The Call of the Wild            | Adventure        | 1903           
-12   | 2        | Death Comes for the Archbishop  | Historical       | 1927           
+12   | 3        | Death Comes for the Archbishop  | Historical       | 1927           
      
 ## Checkout Records
 
