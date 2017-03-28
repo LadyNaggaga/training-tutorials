@@ -1,9 +1,11 @@
 # Installing EF Core  
  
-In this lesson, you will learn how to install EF Core on your machine. You do not need to complete these steps to continue with the rest of the tutorial as the code examples in the other lessons are executable in-browser.
+In this lesson, you will learn how to install Entity Framework Core on your machine. The other lessons in this tutorial use code examples that are executable in-browser, so you do not need to complete the steps in this lesson to continue.
  
 ## Install .NET Core 
  
+Once again, you _do not_ have to complete this lesson to go on to the other lessons. This lesson serves as a reference so you can get started with EF Core, and it is only necessary to complete the steps of this lesson if you want to follow along with the tutorial locally on your machine.
+
 If you haven't already, you will first need to install .NET Core on your machine. Go to the [.NET Core Page](https://www.microsoft.com/net/core) of the Microsoft website, and follow the installation instructions for your platform of choice. You can ensure .NET Core is installed by running the following command: 
  
 ``` 
@@ -12,17 +14,19 @@ dotnet --version
   
 ## Create New Project 
  
-Create a new project by running the following commands (you can skip these steps if you want to add EF Core to an existing project):  
+Create a new project by running the following commands in command line. You can skip these steps if you want to add EF Core to an existing project:  
  
 ```  
-mkdir MyEfCoreProject # Create directory for project  
-cd MyEfCoreProject    # Navigate to project directory   
-dotnet new            # Initialize .NET Core project (generates Startup.cs and project.json)  
+mkdir MyEfCoreProject
+cd MyEfCoreProject
+dotnet new 
 ```  
   
 ## Add EF Core to Project 
  
-To add EF Core to your project, you need to list it as a dependency in your `project.json` file. You need to add the appropriate package for your database provider as well. See [Database Providers](https://docs.microsoft.com/en-us/ef/core/providers/) in the docs for a full listing of available database providers. In this example, we use Sqlite. 
+To add EF Core to your project, you need to list it as a dependency in your `project.json` file. You need to add the appropriate package for your database provider as well. See [Database Providers](https://docs.microsoft.com/en-us/ef/core/providers/) in the docs for a full listing of available database providers.
+
+In this example, we use Sqlite:
  
 ```{json} 
 "dependencies": {
