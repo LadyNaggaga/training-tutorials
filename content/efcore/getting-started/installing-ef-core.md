@@ -6,7 +6,7 @@ In this lesson, you will learn how to install Entity Framework Core on your mach
  
 Once again, you _do not_ have to complete this lesson to go on to the other lessons. This lesson serves as a reference so you can get started with EF Core, and it is only necessary to complete the steps of this lesson if you want to follow along with the tutorial locally on your machine.
 
-First, you will need to install .NET Core on your machine. Go to the [.NET Core Page](https://www.microsoft.com/net/core) of the Microsoft website, and follow the installation instructions for your platform of choice. You can ensure .NET Core is installed by running the following command: 
+First, you will need to install .NET Core on your machine. Go to the [.NET Core](https://www.microsoft.com/net/core) page of the Microsoft website, and follow the installation instructions for your platform of choice. You can ensure .NET Core is installed by running the following command: 
  
 ``` 
 dotnet --version 
