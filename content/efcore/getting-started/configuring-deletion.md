@@ -16,8 +16,7 @@ By convention, EF Core uses **cascade deletion**, so if you run the following ex
  
 ```{.snippet} 
  
-public class Program {  
-  
+public class Program {
     public static void Main() {  
         using (var context = new LibraryContext()){    
                 var reader = context.Reader.Include(b => b.Address).First();  
@@ -28,7 +27,7 @@ public class Program {
 }  
  
 ``` 
-:::repl(data-name=default-deletion-strategy) 
+:::repl{data-name=default-deletion-strategy}
 ::: 
  
 To use one of the other deletion behaviors, we use Fluent API's `OnDelete` method with the `DeleteBehavior` enum as an argument. The possible values of the `DeleteBehavior` enum are `Cascade`, `SetNull`, and `Restrict` (leave the dependent entity alone).  
@@ -51,7 +50,7 @@ public class LibraryContext : DbContext
     }  
 }  
 ``` 
-:::repl(data-name=deletion-configuration) 
+:::repl{data-name=deletion-configuration}
 ::: 
  
 If you change the delete behavior to `Restrict` and run the example again, you will see that the dependent `Address` will be unaffected.  
