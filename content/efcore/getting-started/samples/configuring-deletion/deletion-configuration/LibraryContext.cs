@@ -12,10 +12,10 @@ public class LibraryContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<CheckoutRecord>()
-             .HasOne(r => r.Reader)
-             .WithMany()
-             .OnDelete(DeleteBehavior.SetNull); // `SetNull`, `Restrict`, or `Cascade`
+        modelBuilder.Entity<Address>()
+             .HasOne(a => a.Reader)
+             .WithOne(r => r.Address)
+             .OnDelete(DeleteBehavior.Restrict); // `SetNull`, `Restrict`, or `Cascade`
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

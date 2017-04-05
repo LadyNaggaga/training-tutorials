@@ -9,15 +9,12 @@ public class Program
         using (var context = new LibraryContext())
         {
             var reader = context.Readers.Include(r => r.Address).First();
-            var readers = context.Readers.First();
-            Console.WriteLine("{0} {1}", reader.FirstName, reader.LastName);
-            var address = context.Addresses.First();
-            Console.WriteLine("{0} {1}", address.City, address.State);
+            var addressId = reader.Address.Id;
 
             context.Readers.Remove(reader);
             context.SaveChanges();
 
-            if (context.Addresses.Any(a => a.Id == 1))
+            if (context.Addresses.Any(a => a.Id == addressId))
             {
                 Console.WriteLine("Address exists");
             }
