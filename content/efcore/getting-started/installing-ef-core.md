@@ -1,6 +1,6 @@
 # Installing EF Core  
  
-In this lesson, you will learn how to install Entity Framework Core on your machine.
+In this lesson, you will learn how to install Entity Framework Core (EF Core) on your machine.
  
 ## Install .NET Core 
  
