@@ -13,7 +13,7 @@ dotnet ef migrations add [migration name]
 ``` 
  
 > **Note** {.note}  
-> If the above command fails with the error message, `No executable found matching command "dotnet-ef"`, make sure `Microsoft.EntityFrameworkCore.Tools` has been installed for your project, as shown in the [Appendix: Installing EF Core](installing-ef-core.md) lesson. Also ensure you are running the command from the directory that contains your `project.json` file. 
+> If the above command fails with the error message, `No executable found matching command "dotnet-ef"`, make sure `Microsoft.EntityFrameworkCore.Tools` has been installed for your project, as shown in the [Installing EF Core](installing-ef-core.md) appendix. Also ensure you are running the command from the directory that contains your `project.json` file. 
   
 Finally, we would run the [dotnet-ef-database-update](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet#dotnet-ef-database-update) command to execute the database-creation code. 
  
