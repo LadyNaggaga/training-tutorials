@@ -7,19 +7,16 @@ public class Program
     {
         using (var context = new LibraryContext())
         {
-            var book = context.Books.First();
+            var book = context.Books
+				.Single(b => b.Title == "Mrs Dalloway"); 
 
-            Console.WriteLine(String.Format("Original Book - {0}: {1}", book.Id, book.Title));
-
-            book.Title = "Frankenstein: or, The Modern Prometheus";
-            context.SaveChanges();
-        }
-
-        using (var context = new LibraryContext()) {
-            var updatedBook = context.Books
-                .Single(b => b.Title.Contains("Frankenstein"));
-
-            Console.WriteLine(String.Format("Updated Book - {0}: {1}", updatedBook.Id, updatedBook.Title));
+            Console.WriteLine("Original Book -\n Id: {0}\n Title: {1}", book.Id, book.Title);
+			
+			book.Title = "To the Lighthouse";
+			book.PublicationYear = 1927;
+			context.SaveChanges(); 
+			
+			Console.WriteLine("\nUpdate Book -\n Id: {0}\n Title: {1}", book.Id, book.Title);
         }
     }
 }
