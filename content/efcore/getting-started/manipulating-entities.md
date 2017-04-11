@@ -31,7 +31,7 @@ Notice that we do not specify the `Id` property before adding the author to the 
  
 ## Adding Related Data 
  
-In the previous example, we added an author without any books to the database. Now we want to add an author and their books to the database. To add related entities like this to the database using EF Core we simply call the `Add` method on the parent entity. It will then automatically add the parent’s related entities to the database. In the following example, we add an author and their books to the database by simply adding the author: 
+In the previous example, we added an author without any books to the database. Now we want to add an author and their books to the database. To add related entities like this to the database using EF Core we simply call the `Add` method on the parent entity. It will then automatically add the parent’s related entities to the database. In the following example, we add a new author and their books to the database by simply adding the author:
  
 ```{.snippet}
 using (var context = new LibraryContext()) 
