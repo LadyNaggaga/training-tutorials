@@ -15,7 +15,7 @@ public class Program
                 .Query()
                 .Count();
 
-            Console.WriteLine("Count: {0}", numBooks);
+            Console.WriteLine("Number of {0} {1} books: {2}", author.FirstName, author.LastName, numBooks);
         }
     }
 }
