@@ -4,6 +4,6 @@ This code example demonstrates how to create a one-to-one relationship in EF Cor
 
 ## Code Files:
 - [LibraryContext.cs](LibraryContext.cs)
-- [Reader.cs](../shared/Reader.cs)
 - [Address.cs](../shared/Address.cs)
+- [Reader.cs](../shared/Reader.cs)
 - [Program.cs](../shared/Program.cs)
