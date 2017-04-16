@@ -11,8 +11,8 @@ public class Program
             var books = context.Books
                 .Where(b => b.Genre == "Historical")
                 .ToList();
-			
-			Console.WriteLine("Historical books in library -");
+
+            Console.WriteLine("Historical books in library -");
             foreach (Book book in books)
             {
                 Console.WriteLine(String.Format("{0}", book.Title));

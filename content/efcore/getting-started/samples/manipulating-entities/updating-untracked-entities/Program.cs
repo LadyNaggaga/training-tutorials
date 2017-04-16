@@ -21,7 +21,10 @@ public class Program
             var updatedBook = context.Books
                 .Single(b => b.Id == 1);
 
-            Console.WriteLine("Updated Book -\n Id: {0}\n Title: {1}\n Genre: {2}\n Publication Year: {3}", updatedBook.Id, updatedBook.Title, updatedBook.Genre, updatedBook.PublicationYear);
+            Console.WriteLine("Updated Book -");
+            Console.WriteLine("Id: {0}", updatedBook.Id);
+            Console.WriteLine("Genre: {0}", updatedBook.Genre);
+            Console.WriteLine("Publication Year: {0}", updatedBook.PublicationYear);
         }
     }
 }

@@ -81,15 +81,15 @@ using (var context = new LibraryContext())
  
 ## Updating Entities in a Database 
  
-Next, let's look at how to update records that are already in the database. For example, we might discover that one of our books was catelogged incorrectly. _Mrs Dalloway_ should be _To the Lighthouse_. To fix this, we update the title and publication year of the book:
+Next, let's look at how to update records that are already in the database. For example, we might discover that one of our books was catalogued incorrectly. _Mrs Dalloway_ should be _To the Lighthouse_. To fix this, we update the title and publication year of the book:
  
 ```{.snippet} 
 using (var context = new LibraryContext()) 
 { 
     var book = context.Books
-		.Single(b => b.Title == "Mrs Dalloway"); 
+        .Single(b => b.Title == "Mrs Dalloway"); 
     book.Title = "To the Lighthouse";
-	book.PublicationYear = 1927;
+    book.PublicationYear = 1927;
     context.SaveChanges(); 
 } 
 ``` 
@@ -98,7 +98,7 @@ using (var context = new LibraryContext())
 
 Notice we did not have to tell EF Core that the entity had been changed to update its values. This is because the book we retrieved from the database is a **tracked entity**, meaning EF Core will keep track of any changes made to it. EF Core will continue to track changes made to the entity until the context is disposed, which occurs automatically when leaving the `using` block. To learn more about tracked entities, check out the ["Tracking vs. No-Tracking"](https://docs.microsoft.com/en-us/ef/core/querying/tracking) page in the docs. 
  
-Suppose you want to update an untracked entity. As long as the untracked entity has the same primary key as the record in the database, you can accomplish this using the `DbSet`'s `Update` method. In the following example, we update the book with `Id` of 1 which should be corrected to _To the Lighthouse_ without tracking it: 
+Suppose you want to update an untracked entity. As long as the untracked entity has the same primary key as the record in the database, you can accomplish this using the `DbSet`'s `Update` method. In the following example, we update the title, genre, and publication year of the book with `Id` of 1 without tracking the entity: 
  
 ```{.snippet} 
 using (var context = new LibraryContext()) 
@@ -107,7 +107,7 @@ using (var context = new LibraryContext())
     { 
         Id = 1, 
         Title = "To the Lighthouse",
-		Genre = "Literary",
+        Genre = "Literary",
         PublicationYear = 1927 
     };
 	

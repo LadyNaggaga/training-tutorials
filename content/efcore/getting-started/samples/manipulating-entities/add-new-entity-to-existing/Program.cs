@@ -25,10 +25,9 @@ public class Program
             var addedBook = context.Books
                 .Include(b => b.Author)
                 .Single(b => b.Title.Contains("Badge"));
-			
-			Console.WriteLine("We added a book to the author {0} {1} -", author.FirstName, author.LastName);
 
-			Console.WriteLine("\nTitle: {0}\n Genre: {1}\n Publication Year: {2}", addedBook.Title, addedBook.Genre, addedBook.PublicationYear); 
+            Console.WriteLine("Book, {0}, added to author, {1} {2} - ", addedBook.Title, author.FirstName, author.LastName);
+            Console.WriteLine("Title: {0}\n Genre: {1}\n Publication Year: {2}", addedBook.Title, addedBook.Genre, addedBook.PublicationYear);
         }
     }
 }
