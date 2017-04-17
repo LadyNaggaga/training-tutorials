@@ -11,8 +11,8 @@ public class Program
             var author = context.Authors
                 .Single(a => a.LastName == "Twain");
 
-			Console.WriteLine("Eagerly loaded author: {0} {1}", author.FirstName, author.LastName);
-			
+            Console.WriteLine("Eagerly loaded author: {0} {1}", author.FirstName, author.LastName);
+
             context.Entry(author)
                 .Collection(a => a.Books)
                 .Query()

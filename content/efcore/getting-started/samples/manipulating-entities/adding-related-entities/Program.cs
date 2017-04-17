@@ -9,7 +9,6 @@ public class Program
     {
         using (var context = new LibraryContext())
         {
-			
             var author = new Author
             {
                 FirstName = "Mary",
@@ -30,11 +29,11 @@ public class Program
                 .Include(a => a.Books)
                 .Single(a => a.LastName.Contains("Shelley"));
 				
-			Console.WriteLine("We added the author \"{0} {1}\" with her book(s) -", addedAuthor.FirstName, addedAuthor.LastName);
+            Console.WriteLine("We added the author \"{0} {1}\" with her book(s):", addedAuthor.FirstName, addedAuthor.LastName);
             foreach (Book book in addedAuthor.Books) {
-                Console.WriteLine("\nTitle: {0}", book.Title);
-                Console.WriteLine("Genre: {0}", book.Genre);
-                Console.WriteLine("Publication Year: {0}", book.PublicationYear);
+                Console.WriteLine("\nTitle - {0}", book.Title);
+                Console.WriteLine("Genre - {0}", book.Genre);
+                Console.WriteLine("Publication Year - {0}", book.PublicationYear);
             }
         }
     }

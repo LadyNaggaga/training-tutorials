@@ -13,7 +13,7 @@ public class Program
                 .Include(b => b.Author)
                 .Single(b => b.Id == 1);
 
-			Console.WriteLine("Included author and checkout record(s) with book -");
+            Console.WriteLine("Included author and checkout record(s) with book -");
             Console.WriteLine("Id: {0}", book.Id);
             Console.WriteLine("Title: {0}", book.Title);
             Console.WriteLine("Genre: {0}", book.Genre);
