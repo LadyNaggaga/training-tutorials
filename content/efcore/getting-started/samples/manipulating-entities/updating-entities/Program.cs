@@ -20,7 +20,7 @@ public class Program
             book.PublicationYear = 1927;
             context.SaveChanges(); 
 			
-            Console.WriteLine("\nUpdated Book -");
+            Console.WriteLine("\n~~ Updated Book ~~");
             Console.WriteLine("Id: {0}", book.Id);
             Console.WriteLine("Title: {0}", book.Title);
             Console.WriteLine("Genre: {0}", book.Genre);
