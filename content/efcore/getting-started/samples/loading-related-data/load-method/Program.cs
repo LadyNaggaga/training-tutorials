@@ -10,13 +10,14 @@ public class Program
             var author = context.Authors
                 .Single(a => a.LastName == "Twain");
 			
-            Console.WriteLine("Eagerly loaded author: {0} {1}", author.FirstName, author.LastName);
+            Console.WriteLine("-- Eagerly Loaded Author --");
+            Console.WriteLine("{0} {1}", author.FirstName, author.LastName);
 			
             context.Entry(author)
                 .Collection(a => a.Books)
                 .Load();
 			
-            Console.WriteLine("Explicitly loaded the author's books:");
+            Console.WriteLine("-- Explicitly loaded the author's books --");
             foreach (Book book in author.Books)
             {
                 Console.WriteLine(book.Title);

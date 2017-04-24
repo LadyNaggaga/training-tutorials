@@ -13,16 +13,14 @@ public class Program
                 .Include(b => b.Author)
                 .Single(b => b.Id == 1);
 
-            Console.WriteLine("Included author and checkout record(s) with book -");
-            Console.WriteLine("Id: {0}", book.Id);
+            Console.WriteLine("-- Included author and checkout record(s) with book --");
             Console.WriteLine("Title: {0}", book.Title);
-            Console.WriteLine("Genre: {0}", book.Genre);
-            Console.WriteLine("Publication Year: {0}", book.PublicationYear);
             Console.WriteLine("Author: {0} {1}", book.Author.FirstName, book.Author.LastName);
 			
+            Console.WriteLine("Checkout Records:")
             foreach (CheckoutRecord checkoutRecord in book.CheckoutRecords)
             {
-                Console.WriteLine("Due Date: {0}", checkoutRecord.DueDate.ToString("MMMM dd, yyyy"));
+                Console.WriteLine("Checked out by {0} {1} on {2}", checkoutRecord.Reader.FirstName, checkoutRecord.Reader.LastName, checkoutRecord.CheckoutDate.ToString("MMMM dd, yyyy"));
             }
         }
     }

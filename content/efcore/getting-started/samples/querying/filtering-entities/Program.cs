@@ -15,7 +15,7 @@ public class Program
             Console.WriteLine("Historical books in library:");
             foreach (Book book in books)
             {
-                Console.WriteLine(String.Format("{0}", book.Title));
+                Console.WriteLine(book.Title);
             }
         }
     }

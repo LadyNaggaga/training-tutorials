@@ -28,12 +28,12 @@ public class Program
             var addedAuthor = context.Authors
                 .Include(a => a.Books)
                 .Single(a => a.LastName.Contains("Shelley"));
-				
-            Console.WriteLine("We added the author \"{0} {1}\" with her book(s):", addedAuthor.FirstName, addedAuthor.LastName);
+			
+            Console.WriteLine("-- Added author and associated books --");
+            Console.WriteLine("Author: {0} {1}", addedAuthor.FirstName, addedAuthor.LastName);
+            Console.WriteLine("Books:");
             foreach (Book book in addedAuthor.Books) {
-                Console.WriteLine("\nTitle - {0}", book.Title);
-                Console.WriteLine("Genre - {0}", book.Genre);
-                Console.WriteLine("Publication Year - {0}", book.PublicationYear);
+                Console.WriteLine(book.Title);
             }
         }
     }

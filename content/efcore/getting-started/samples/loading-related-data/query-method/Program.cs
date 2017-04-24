@@ -11,7 +11,8 @@ public class Program
             var author = context.Authors
                 .Single(a => a.LastName == "Twain");
 
-            Console.WriteLine("Eagerly loaded author: {0} {1}", author.FirstName, author.LastName);
+            Console.WriteLine("-- Eagerly loaded author --")
+            Console.WriteLine("{0} {1}", author.FirstName, author.LastName);
 
             context.Entry(author)
                 .Collection(a => a.Books)
@@ -19,7 +20,7 @@ public class Program
                 .Where(b => b.Title.Contains("Huck"))
                 .Load();
 
-            Console.WriteLine("Used a query to find the book ");
+            Console.WriteLine("-- Explicitly loaded the author's books containing \"Huck\" --");
             foreach (var book in author.Books)
             {
                 Console.WriteLine(book.Title);

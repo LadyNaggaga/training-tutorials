@@ -10,7 +10,7 @@ public class Program
             var book = context.Books
 				.Single(b => b.Title == "Mrs Dalloway"); 
 
-            Console.WriteLine("~~ Original Book ~~");
+            Console.WriteLine("-- Original Book --");
             Console.WriteLine("Id: {0}", book.Id);
             Console.WriteLine("Title: {0}", book.Title);
             Console.WriteLine("Genre: {0}", book.Genre);
@@ -20,7 +20,7 @@ public class Program
             book.PublicationYear = 1927;
             context.SaveChanges(); 
 			
-            Console.WriteLine("\n~~ Updated Book ~~");
+            Console.WriteLine("\n-- Updated Book --");
             Console.WriteLine("Id: {0}", book.Id);
             Console.WriteLine("Title: {0}", book.Title);
             Console.WriteLine("Genre: {0}", book.Genre);
