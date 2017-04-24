@@ -23,7 +23,7 @@ public class Program
 
             Console.WriteLine("-- Updated Book --");
             Console.WriteLine("Id: {0}", updatedBook.Id);
-            Console.WriteLine("Title: {0}", book.Title);
+            Console.WriteLine("Title: {0}", updatedBook.Title);
             Console.WriteLine("Genre: {0}", updatedBook.Genre);
             Console.WriteLine("Publication Year: {0}", updatedBook.PublicationYear);
         }
